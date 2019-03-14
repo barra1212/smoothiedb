@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        {% for smoothie_recipes in smoothie_recipes %}
+            {{smoothie_recipes.smoothie_name}}
+            {{smoothie_recipes.category_name}}
+            {{smoothie_recipes.description}}
+            {{smoothie_recipes.ingredients}}
+            {{smoothie_recipes.method}}
+            {{smoothie_recipes.calories}}
+        {% endfor %}
+    </body>
+</html>
+
+
