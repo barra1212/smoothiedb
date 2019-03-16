@@ -1,30 +1,23 @@
-{% extends 'base.html'%}
+{% extends 'base.html'%} {% block content %}
 
-{% block content %}
-    
-    {% for smoothie_recipes in smoothie_recipes %}
-        {{smoothie_recipes.smoothie_name}}
-        {{smoothie_recipes.category_name}}
-        {{smoothie_recipes.description}}
-        {{smoothie_recipes.ingredients}}
-        {{smoothie_recipes.method}}
-        {{smoothie_recipes.calories}}
-    {% endfor %}
-
-  <ul class="collapsible">
-    <li>
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-    <li>
-      <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-    <li>
-      <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-  </ul>
-        
+<ul class="collapsible">
+  {% for smoothie_recipes in smoothie_recipes %}
+  <li>
+    <div class="collapsible-header"><i class="material-icons">filter_drama</i>{{smoothie_recipes.category_name}}</div>
+    <div class="collapsible-body">
+      <span>
+          <br/>
+          <h4>{{smoothie_recipes.smoothie_name}}</h4><br/>
+          <strong>Description - </strong>{{smoothie_recipes.description}}<br/>
+          <strong>Ingredients - </strong><br/>
+          {% for ingredient in smoothie_recipes.ingredients %}
+            <ol>{{ ingredient }}</ol>
+          {% endfor %}
+          <strong>Method - </strong>{{smoothie_recipes.method}}<br/>
+          <strong>Calories - </strong>{{smoothie_recipes.calories}}
+        </span></div>
+  </li>
+  {% endfor %}
+</ul>
 
 {% endblock %}
