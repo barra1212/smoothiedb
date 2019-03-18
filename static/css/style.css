@@ -1,0 +1,56 @@
+body {
+    background-color: #FFE943;
+}
+
+nav {
+    background-color: #f4df43;
+    border-bottom-color: #ffffff;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+}
+
+
+#slide-out {
+    font-family: 'Lato', sans-serif;
+    color: #643E4C !important;
+}
+
+nav ul a {
+    font-family: 'Lato', sans-serif;
+    color: #643E4C;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Lato', sans-serif;
+    color: #643E4C;
+}
+
+.intro {
+    text-align: center;
+}
+
+.page-footer {
+    background-color: #643E4C;
+}
+
+
+@media only screen and (min-width: 990px) {
+    .nav-wrapper {
+        width: 70%;
+        margin: auto;
+    }
+}
+
+
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
