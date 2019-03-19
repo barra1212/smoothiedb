@@ -17,25 +17,24 @@
                 <a href="#" class="brand-logo"><img src="{{url_for('static', filename='images/logo.png')}}"></img></a>
                 <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="{{ url_for('get_smoothies') }}">Home</a></li>
                     <li><a href="#">Browse</a></li>
-                    <li><a href="#">Add Smoothie</a></li>
+                    <li><a href="{{ url_for('add_smoothie') }}">Add Smoothie</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
             </div>
         </nav>
     
         <ul id="slide-out" class="sidenav">
-            <li><a href="#">Home</a></li>
+            <li><a href="{{ url_for('get_smoothies') }}">Home</a></li>
             <li><a href="#">Browse</a></li>
-            <li><a href="#">Add Smoothie</a></li>
+            <li><a href="{{ url_for('add_smoothie') }}">Add Smoothie</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
     
     </header>
 
-    <main>
-        <h1>Outside!</h1>
+    <main class="container">
         {% block content %}
         {% endblock %}
     </main>
@@ -68,6 +67,9 @@
 
                 // Use tags for keyword_search
                 $('.chips').chips();
+                
+                // Add smoothie in modal window
+                $('.modal').modal();
                 
             });
         </script>

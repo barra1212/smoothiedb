@@ -10,8 +10,8 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = os.environ.get('MONGO_DBNAME')
 app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
 
-
 mongo = PyMongo(app)
+
 
 @app.route('/')
 @app.route('/get_smoothies')
@@ -35,7 +35,7 @@ def insert_smoothie():
 @app.route('/get_categories')
 def get_categories():
     return render_template('categories.html',
-                           categories=mongo.db.categories.find())
+    categories=mongo.db.categories.find())
 
 
 @app.route('/delete_category/<category_id>', methods=['POST'])
