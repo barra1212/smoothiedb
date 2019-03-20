@@ -13,12 +13,10 @@
     <header>
     
         <nav>
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo"><img src="{{url_for('static', filename='images/logo.png')}}"></img></a>
+            <div class="nav-wrapper" id="brand-logo">
                 <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('get_smoothies') }}">Home</a></li>
-                    <li><a href="#">Browse</a></li>
                     <li><a href="{{ url_for('add_smoothie') }}">Add Smoothie</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
@@ -27,14 +25,17 @@
     
         <ul id="slide-out" class="sidenav">
             <li><a href="{{ url_for('get_smoothies') }}">Home</a></li>
-            <li><a href="#">Browse</a></li>
             <li><a href="{{ url_for('add_smoothie') }}">Add Smoothie</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
     
     </header>
-
+    
     <main class="container">
+        <div class="intro">
+            <h4>Fancy a Smoothie? We've got tons of recipes.</h4>
+            <h6>And if we don't have your favourite, feel free to add it to our Smoothie DB</h6>
+        </div>
         {% block content %}
         {% endblock %}
     </main>
@@ -58,6 +59,9 @@
         
         <script type="text/javascript">
             $(document).ready(function() {
+                
+                // Slide our Side Nav
+                $('.sidenav').sidenav();
                 
                 // Collapsible recipes, initial stages of the build
                 $('.collapsible').collapsible();
