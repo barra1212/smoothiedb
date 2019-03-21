@@ -1,11 +1,11 @@
 {% extends 'base.html'%} {% block content %}
 
 <div class="row">
-<ul class="collapsible">
+<ul class="collapsible category-image">
   {% for smoothie_recipes in smoothie_recipes %}
   <li>
     
-    <div class="col s6 m3 l2 collapsible-header">{{smoothie_recipes.category_name}}</div>
+    <div class="col s6 m3 l2 collapsible-header square"><img src="{{smoothie_recipes.category_image}}" class="responsive-img"></div>
     <div class="collapsible-body">
       <span>
           <h4>{{smoothie_recipes.smoothie_name}}</h4><br/>
@@ -29,6 +29,14 @@
 
   </li>
   {% endfor %}
+  <li>
+  <div class="col s6 m3 l2">
+    <p><a href="{{ url_for('add_smoothie') }}">
+    <img src="static/images/addsmoothie.svg" class="responsive-img"></img></a></p>
+  </div>
+</li>
+
+
 </ul>
 </div>
 

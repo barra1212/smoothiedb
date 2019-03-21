@@ -16,6 +16,18 @@ nav {
     margin: 0;
 }
 
+.collapsible-header {
+    background-color: transparent;
+}
+
+.square {
+    /*background: #000;*/
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #brand-logo {
     background-image: url(../images/logo.svg);
     background-repeat: no-repeat;
