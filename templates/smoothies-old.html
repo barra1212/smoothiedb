@@ -1,24 +1,13 @@
 {% extends 'base.html'%} {% block content %}
 
-<!-- Modal Trigger -->
-<div class="row">
-  <div class="col s6 m3 l2">
-    <p><a class="modal-trigger" href="#modal1">
-    <img src="static/images/banana.png" class="responsive-img"></img></a></p>
-  </div>
-
-  <div class="col s6 m3 l2">
-    <p><a href="{{ url_for('add_smoothie') }}">
-    <img src="static/images/addsmoothie.png" class="responsive-img"></img></p>
-  </div>
-</div>                
-              
-<!-- Modal Structure -->
-<div id="modal1" class="modal">
+<ul class="collapsible">
   {% for smoothie_recipes in smoothie_recipes %}
-  <div class="modal-content">
-    <span>
-<h4>{{smoothie_recipes.smoothie_name}}</h4><br/>
+  <li>
+    <div class="collapsible-header"><i class="material-icons">filter_drama</i>{{smoothie_recipes.category_name}}</div>
+    <!--<div class="collapsible-header"><img src="static/images/orange.png" />{{smoothie_recipes.category_name}}</div>-->
+    <div class="collapsible-body">
+      <span>
+          <h4>{{smoothie_recipes.smoothie_name}}</h4><br/>
           
           <strong>Description - </strong>{{smoothie_recipes.description}}<br/>
           
@@ -34,9 +23,10 @@
           <strong>Keywords for Search - </strong><br/>
           {% for keywords in smoothie_recipes.keyword_search %}
             <ol>{{ keywords }}</ol>
-          {% endfor %}  </span>
-  </div>
+          {% endfor %}
+        </span></div>
+  </li>
   {% endfor %}
-</div>
+</ul>
 
 {% endblock %}

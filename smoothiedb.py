@@ -45,45 +45,6 @@ def insert_smoothie():
     return redirect(url_for('get_smoothies'))
 
 
-# @app.route('/insert_smoothie', methods=['POST'])
-# def insert_smoothie():
-#     smoothie_recipes = mongo.db.smoothie_recipes
-#     smoothie_recipes.insert_one(request.form.to_dict())
-#     return redirect(url_for('get_smoothies'))
-
-
-# @app.route('/insert_smoothie', methods=['POST'])
-# def insert_smoothie():
-#     smoothie_recipes = mongo.db.smoothie_recipes
-#     print(request.form)
-#     ingredients = request.form.get('ingredients')
-#     ingredient_list = ingredients.splitlines()
-#     print(ingredient_list)
-#     # smoothie_recipes.insert_one(request.form.to_dict())
-#     return redirect(url_for('get_smoothies'))
-
-
-# @app.route('/insert_smoothie', methods=['POST'])
-# def insert_smoothie():
-#     smoothie_recipes = mongo.db.smoothie_recipes
-#     smoothie = {
-#     smoothie_name: request.form.get('smoothie_name'),
-#     category_name: request.form.get('category_name'),
-#     description: request.form.get('description'),
-#     print(request.form)
-#     ingredients = request.form.get('ingredients')
-#     ingredient_list = ingredients.splitlines()
-#     print(ingredient_list),
-#     method: request.form.get('method'),
-#     calories: request.form.get('calories'),
-#     print(request.form)
-#     keyword_search = request.form.get('keyword_search')
-#     keyword_search_list = keyword_search.splitlines()
-#     print(keyword_search_list)
-#     }
-#     return redirect(url_for('get_smoothies'))
-
-
 @app.route('/get_categories')
 def get_categories():
     return render_template('categories.html',
