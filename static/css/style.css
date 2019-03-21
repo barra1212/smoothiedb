@@ -12,6 +12,10 @@ nav {
     line-height: 60px;
 }
 
+.lists {
+    margin: 0;
+}
+
 #brand-logo {
     background-image: url(../images/logo.svg);
     background-repeat: no-repeat;
