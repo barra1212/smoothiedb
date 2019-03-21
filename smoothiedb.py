@@ -25,6 +25,12 @@ def add_smoothie():
     categories=mongo.db.categories.find())
 
 
+@app.route('/test')
+def test():
+    return render_template('test.html',
+    smoothie_recipes=mongo.db.smoothie_recipes.find())
+    
+
 @app.route('/insert_smoothie', methods=['POST'])
 def insert_smoothie():
     smoothie_recipes = mongo.db.smoothie_recipes
@@ -39,7 +45,7 @@ def insert_smoothie():
         "ingredients": ingredient_list,
         "method": request.form.get('method'),
         "calories": request.form.get('calories'),
-        "keyword_search": keyword_search_list
+        "keyword_search": keyword_search_list,
     }
     smoothie_recipes.insert_one(smoothie)
     return redirect(url_for('get_smoothies'))

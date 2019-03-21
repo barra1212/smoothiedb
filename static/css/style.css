@@ -16,16 +16,16 @@ nav {
     margin: 0;
 }
 
-.collapsible-header {
+.collapsible-header, .collapsible-body, .collapsible, ul.collapsible>li {
+    margin: 0!important;
+    padding: 10!important;
+    border: 0!important;
+    box-shadow: none!important;
     background-color: transparent;
 }
 
-.square {
-    /*background: #000;*/
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.row .col {
+    padding: .75em .75em;
 }
 
 #brand-logo {
@@ -51,6 +51,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .intro {
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .page-footer {
@@ -72,12 +73,12 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 
-  body {
+body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-  }
+}
 
-  main {
+main {
     flex: 1 0 auto;
-  }
+}
