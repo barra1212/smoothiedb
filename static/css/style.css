@@ -51,7 +51,16 @@ nav ul a {
 
 h1,h2,h3,h4,h5,h6 {
     font-family: 'Lato', sans-serif;
+    text-align: center;
     color: #643E4C;
+}
+
+.btn, .btn-large, .btn-small {
+    background-color: #643E4C;
+}
+
+.btn:hover, .btn-large:hover, .btn-small:hover {
+    background-color: #b58060;
 }
 
 .intro {

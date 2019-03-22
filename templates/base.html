@@ -17,6 +17,7 @@
                 <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('get_smoothies') }}">Home</a></li>
+                    <li><a href="{{ url_for('get_categories') }}">View Categories</a></li>
                     <li><a href="{{ url_for('add_smoothie') }}">Add Smoothie</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
@@ -25,6 +26,7 @@
     
         <ul id="slide-out" class="sidenav">
             <li><a href="{{ url_for('get_smoothies') }}">Home</a></li>
+            <li><a href="{{ url_for('get_categories') }}">View Categories</a></li>
             <li><a href="{{ url_for('add_smoothie') }}">Add Smoothie</a></li>
             <li><a href="#">Contact</a></li>
         </ul>

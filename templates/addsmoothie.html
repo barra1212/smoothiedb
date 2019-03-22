@@ -3,25 +3,30 @@
 <div class="row">
     <form action="{{ url_for('insert_smoothie') }}" method="POST"  class="col s12">
         
-        <!-- Choose Smoothie category-->
+        <!-- Choose Smoothie category -->
         <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">poll</i>
+            <div class="input-field col s12 m12 l8 offset-l2">
+                <i class="material-icons prefix">local_drink</i>
                 <select id="categories" name="category_name">
                 <option value="" disabled selected>Choose Category</option>
                 {% for cat in categories %}
                     <option value="{{cat.category_name}}" data-icon="/static/images/{{cat.category_name}}.svg">{{cat.category_name}}</option>
                 {% endfor %}
                 </select>
-                <label>Smoothie Category</label>
-                <a href="add_category">OR Add your Category</a>
             </div>
         </div>
-        
+            
+        <!-- Or Add a New Category -->
+        <div class="row center col s12 m12 l8 offset-l2">
+            <a href="{{url_for('add_category')}}" class="waves-effect waves-light btn">
+                <i class="material-icons right">local_drink</i>Or Add a New Category
+            </a>
+        </div>
+
         <!-- Add Smoothie name-->
         <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">assignment</i>
+            <div class="input-field col s12 m12 l8 offset-l2">
+                <i class="material-icons prefix">local_drink</i>
                 <input id="smoothie_name" name="smoothie_name" type="text">
                 <label for="icon_prefix">Smoothie Name</label>
             </div>
@@ -29,8 +34,8 @@
         
         <!-- Add Smoothie description-->
         <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">subject</i>
+            <div class="input-field col s12 m12 l8 offset-l2">
+                <i class="material-icons prefix">local_drink</i>
                 <textarea id="description" name="description" type="text" class="materialize-textarea"></textarea>
                 <label for="icon_telephone">Smoothie Description</label>
             </div>
@@ -38,9 +43,9 @@
         
         <!-- Add Smoothie ingredients-->
         <div class="row">
-            <p>Enter your Smoothie ingredients. Hit return after each one.</p>
-            <div class="input-field col s12">
-                <i class="material-icons prefix">subject</i>
+            <p class="center">Enter your Smoothie ingredients. Hit return after each one.</p>
+            <div class="input-field col s12 m12 l8 offset-l2">
+                <i class="material-icons prefix">local_drink</i>
                 <textarea id="ingredients" name="ingredients" type="text" class="materialize-textarea"></textarea>
                 <label for="icon_telephone">Smoothie Ingredients</label>
             </div>
@@ -48,8 +53,8 @@
         
         <!-- Add Smoothie method-->
         <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">subject</i>
+            <div class="input-field col s12 m12 l8 offset-l2">
+                <i class="material-icons prefix">local_drink</i>
                 <textarea id="method" name="method" type="text" class="materialize-textarea"></textarea>
                 <label for="icon_telephone">Smoothie Method</label>
             </div>
@@ -57,8 +62,8 @@
         
         <!-- Add calories-->
         <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">subject</i>
+            <div class="input-field col s12 m12 l8 offset-l2">
+                <i class="material-icons prefix">local_drink</i>
                 <input id="calories" name="calories" type="number" class="validate" />
                 <label for="number">Enter calories</label>
             </div>
@@ -66,19 +71,19 @@
         
         <!-- keywords for search-->
         <div class="row">
-            <p>Enter keywords so that your Smoothie recipe can be found. Hit return after each one.</p>
-            <div class="input-field col s12">
-                <i class="material-icons prefix">subject</i>
+            <p class="center">Enter keywords so that your Smoothie recipe can be found. Hit return after each one.</p>
+            <div class="input-field col s12 m12 l8 offset-l2">
+                <i class="material-icons prefix">local_drink</i>
                 <textarea id="keyword_search" name="keyword_search" type="text" class="materialize-textarea"></textarea>
                 <label for="icon_telephone">Search Keywords</label>
             </div>
         </div>
 
         <!-- Button to Add Smoothie to the database-->
-        <div class="row">
+        <div class="row center">
             <!--<button class="btn waves-effect waves-light" type="submit" name="action">Add Smoothie-->
-            <button class="btn waves-effect waves-light" type="submit" >Add Smoothie
-                <i class="material-icons right">create</i>
+            <button class="btn-large waves-effect waves-light" type="submit" >Add Smoothie
+                <i class="material-icons right">local_drink</i>
              </button>
         </div>
         
