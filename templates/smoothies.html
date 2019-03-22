@@ -31,12 +31,16 @@
         </span></div>
   </li>
   {% endfor %}
-  <div class="col s6 m3 l2">
-    <p><a href="{{ url_for('add_smoothie') }}">
-    <img src="static/images/addsmoothie.svg" class="responsive-img"></img></a></p>
-  </div>
 
+  <li>
+    <div class="col s6 m3 l2">
+      <a href="{{ url_for('add_smoothie') }}">
+      <img src="static/images/addsmoothie.svg" class="responsive-img add-smoothie-max"></a>
+    </div>
+  </li>
+    
 </ul>
 </div>
 
 {% endblock %}
+

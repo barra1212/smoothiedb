@@ -28,6 +28,11 @@ nav {
     padding: .75em .75em;
 }
 
+.add-smoothie-max {
+    max-width: 150px;
+    max-height: 150px;
+}
+
 #brand-logo {
     background-image: url(../images/logo.svg);
     background-repeat: no-repeat;

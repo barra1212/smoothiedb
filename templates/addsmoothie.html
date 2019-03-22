@@ -2,7 +2,7 @@
 <h3>Add Smoothie</h3>
 <div class="row">
     <form action="{{ url_for('insert_smoothie') }}" method="POST"  class="col s12">
-
+        
         <!-- Choose Smoothie category-->
         <div class="row">
             <div class="input-field col s12">
@@ -10,7 +10,7 @@
                 <select id="categories" name="category_name">
                 <option value="" disabled selected>Choose Category</option>
                 {% for cat in categories %}
-                      <option value="{{cat.category_name}}">{{cat.category_name}}</option>
+                    <option value="{{cat.category_name}}" data-icon="/static/images/{{cat.category_name}}.svg">{{cat.category_name}}</option>
                 {% endfor %}
                 </select>
                 <label>Smoothie Category</label>

@@ -79,7 +79,7 @@ def update_category(category_id):
 
 @app.route('/insert_category', methods=['POST'])
 def insert_category():
-    category_doc = {'category_name': request.form.get('category_name')}
+    category_doc = {'category_name': request.form.get('category_name').lower()}
     mongo.db.categories.insert_one(category_doc)
     return redirect(url_for('get_categories'))
 
