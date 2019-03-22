@@ -25,10 +25,10 @@ def add_smoothie():
     categories=mongo.db.categories.find())
 
 
-@app.route('/test')
-def test():
-    return render_template('test.html',
-    smoothie_recipes=mongo.db.smoothie_recipes.find())
+# @app.route('/test')
+# def test():
+#     return render_template('test.html',
+#     smoothie_recipes=mongo.db.smoothie_recipes.find())
     
 
 @app.route('/insert_smoothie', methods=['POST'])

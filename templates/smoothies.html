@@ -5,10 +5,8 @@
   {% for smoothie_recipes in smoothie_recipes %}
   <li>
     <div class="col s6 m3 l2 collapsible-header">
-      <img src="{{smoothie_recipes.category_image}}" class="responsive-img">
+      <img src="/static/images/{{smoothie_recipes.category_name}}.svg" class="responsive-img">
 
-<!--<img src="{{ url_for('static', filename='images/'+'{{smoothie_recipes.category_name}}'+'.svg') }}" class="responsive-img">-->
-      
     </div>
 
     <div class="collapsible-body">
