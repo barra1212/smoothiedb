@@ -4,12 +4,13 @@
 
     <h3>Categories</h3>
     <ul class="collapsible" data-collapsible="accordion">
-        {% for category in categories %}
+        {% for category in categories|sort(attribute='category_name') %}
+        
         <li>
             <div class="col s6 m3 l2">
                 
                 <div>
-                    <img src="/static/images/{{category.category_name}}.svg" class="responsive-img add-smoothie-max">
+                    <img src="/static/images/{{category.category_name}}.svg" class="responsive-img smoothie-icon-max" title="{{category.category_name}}" alt="{{category.category_name}}">
                 </div>
 
                 <div>

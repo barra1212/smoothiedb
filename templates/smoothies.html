@@ -2,13 +2,15 @@
 
 <div class="row">
   <ul>
-    {% for smoothie_recipes in smoothie_recipes %}
+
+    {% for smoothie_recipes in smoothie_recipes|sort(attribute='category_name') %}
+    
     <li>
       <div class="col s6 m3 l2">
 
         <!-- Modal Trigger -->
         <a class="modal-trigger" href="#{{smoothie_recipes._id}}">
-        <img src="/static/images/{{smoothie_recipes.category_name}}.svg" class="responsive-img smoothie-icon-max">
+        <img src="/static/images/{{smoothie_recipes.category_name}}.svg" class="responsive-img smoothie-icon-max" title="{{smoothie_recipes.smoothie_name}}" alt="{{smoothie_recipes.smoothie_name}}">
         </a>
         <br/>
         <a class="modal-trigger category-title" href="#{{smoothie_recipes._id}}">

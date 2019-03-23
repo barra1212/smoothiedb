@@ -12,8 +12,12 @@
 
     <header>
     
+    <!--<img src="/static/images/logo.svg" class="brand-logo">-->
+    
+    
         <nav>
-            <div class="nav-wrapper" id="brand-logo">
+            <div class="nav-wrapper">
+            <a href="{{ url_for('get_smoothies') }}" class="brand-logo"><img src="/static/images/logo.svg" class="smoothie-logo"></a>
                 <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('get_smoothies') }}">Home</a></li>

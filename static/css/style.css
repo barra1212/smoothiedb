@@ -24,6 +24,10 @@ nav {
     background-color: transparent;
 }
 
+.smoothie-logo {
+    padding-top: 5px;
+    height: 50px;
+}
 
 .row .col {
     padding: .75em .75em;
@@ -38,11 +42,6 @@ nav {
     text-transform: capitalize;
 }
 
-#brand-logo {
-    background-image: url(../images/logo.svg);
-    background-repeat: no-repeat;
-    max-height: 50px;
-}
 
 #slide-out {
     font-family: 'Lato', sans-serif;
@@ -82,12 +81,6 @@ h1,h2,h3,h4,h5,h6 {
     .nav-wrapper {
         width: 70%;
         margin: auto;
-    }
-}
-
-@media only screen and (max-width: 990px) {
-    #brand-logo {
-        background-position: center;
     }
 }
 
