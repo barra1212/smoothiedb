@@ -6,14 +6,14 @@
     <ul class="collapsible" data-collapsible="accordion">
         {% for category in categories %}
         <li>
-            <div class="col s6 m4 l3">
+            <div class="col s6 m3 l2">
                 
                 <div>
                     <img src="/static/images/{{category.category_name}}.svg" class="responsive-img add-smoothie-max">
                 </div>
 
                 <div>
-                    <h4>{{category.category_name}}</h4>
+                    <h6 class="category-title">{{category.category_name}}</h6>
                 </div>
 
                 <form class="center" action="{{url_for('delete_category', category_id=category._id)}}" method="POST">

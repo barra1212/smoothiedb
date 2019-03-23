@@ -24,13 +24,18 @@ nav {
     background-color: transparent;
 }
 
+
 .row .col {
     padding: .75em .75em;
 }
 
-.add-smoothie-max {
+.smoothie-icon-max {
     max-width: 150px;
     max-height: 150px;
+}
+
+.category-title {
+    text-transform: capitalize;
 }
 
 #brand-logo {
