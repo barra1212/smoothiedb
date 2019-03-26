@@ -88,7 +88,16 @@ def insert_category():
 def add_category():
     return render_template('addcategory.html')
     
+    
+@app.route("/search", methods=['GET', 'POST'])
+def search():
+    cursor = g.con.cursor()
+    cursor.execute('SELECT *', (request.form["search"],))
+    result = cursor.fetchall()
+    cursor.close()
+    return render_template('search-results.html', result = result)
 
+    
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')),

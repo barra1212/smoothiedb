@@ -1,9 +1,19 @@
 {% extends 'base.html'%} {% block content %}
 
+<!--https://stackoverflow.com/questions/41300486/search-function-in-flask-->
+{% for smoothie_recipes in smoothie_recipes %}
+<form action="search">
+  <input name="search" type="text" placeholder="suchen" value="{{ request.form.search }}" required />
+  <button>finden</button>
+</form>
+{% endfor %}
+
+
 <div class="row">
   <ul>
 
     {% for smoothie_recipes in smoothie_recipes|sort(attribute='category_name') %}
+    
     
     <li>
       <div class="col s6 m3 l2">
