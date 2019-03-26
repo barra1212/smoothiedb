@@ -26,14 +26,19 @@
             </div>
         </li>
         {% endfor %}
+        <li>
+            <div class="col s6 m3 l2">
+                <a href="{{ url_for('add_category') }}">
+                  <img src="static/images/addsmoothie.svg" class="responsive-img smoothie-icon-max">
+                </a>
+                <br/>
+                <a href="{{ url_for('add_category') }}">
+                    <h6>Add Category</h6>
+                </a>
+            </div>
+        </li>
 
     </ul>
-</div>
-
-<div class="row center">
-    <a href="{{url_for('add_category')}}" class="waves-effect waves-light btn-large">
-        <i class="material-icons right">local_drink</i>Add Category
-    </a>
 </div>
 
 {% endblock %}

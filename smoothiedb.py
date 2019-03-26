@@ -19,16 +19,17 @@ def get_smoothies():
     return render_template("smoothies.html", smoothie_recipes=mongo.db.smoothie_recipes.find())
    
 
+@app.route('/search')
+def search():
+    smoothie_recipes = mongo.db.smoothie_recipes
+    smoothie_recipes = smoothie_recipes.create_index([("$**", 'text')])
+    return render_template("search-results.html", smoothie_recipes.find({"$text": {"$search": str('banana')}})
+
+
 @app.route('/add_smoothie')
 def add_smoothie():
     return render_template('addsmoothie.html',
     categories=mongo.db.categories.find())
-
-
-# @app.route('/test')
-# def test():
-#     return render_template('test.html',
-#     smoothie_recipes=mongo.db.smoothie_recipes.find())
     
 
 @app.route('/insert_smoothie', methods=['POST'])
@@ -57,6 +58,11 @@ def get_categories():
     categories=mongo.db.categories.find())
 
 
+@app.route('/add_category')
+def add_category():
+    return render_template('addcategory.html')
+    
+
 @app.route('/delete_category/<category_id>', methods=['POST'])
 def delete_category(category_id):
     mongo.db.categories.remove({'_id': ObjectId(category_id)})
@@ -84,20 +90,6 @@ def insert_category():
     return redirect(url_for('get_categories'))
 
 
-@app.route('/add_category')
-def add_category():
-    return render_template('addcategory.html')
-    
-    
-@app.route("/search", methods=['GET', 'POST'])
-def search():
-    cursor = g.con.cursor()
-    cursor.execute('SELECT *', (request.form["search"],))
-    result = cursor.fetchall()
-    cursor.close()
-    return render_template('search-results.html', result = result)
-
-    
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')),

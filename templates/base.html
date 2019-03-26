@@ -12,9 +12,6 @@
 
     <header>
     
-    <!--<img src="/static/images/logo.svg" class="brand-logo">-->
-    
-    
         <nav>
             <div class="nav-wrapper">
             <a href="{{ url_for('get_smoothies') }}" class="brand-logo"><img src="/static/images/logo.svg" class="smoothie-logo"></a>
@@ -42,6 +39,19 @@
             <h4>Fancy a Smoothie? We've got tons of recipes.</h4>
             <h6>And if we don't have your favourite, feel free to add it to our Smoothie DB</h6>
         </div>
+        
+        <div class="row">
+            <div class="col s8 offset-s2">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">search</i>
+                        <input type="text" id="autocomplete-input" class="autocomplete">
+                        <label for="autocomplete-input">Search</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         {% block content %}
         {% endblock %}
     </main>
@@ -75,9 +85,6 @@
                 // Enable choosing from categories
                 $('select').formSelect();
 
-                // Use tags for keyword_search
-                $('.chips').chips();
-                
                 // Add smoothie in modal window
                 $('.modal').modal();
                 

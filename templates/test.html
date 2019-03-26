@@ -1,55 +1,11 @@
 {% extends 'base.html'%} {% block content %}
 
-<div class="row">
-  <ul>
-    {% for smoothie_recipes in smoothie_recipes %}
-    <li>
-      <div class="col s6 m3 l2">
-
-        <!-- Modal Trigger -->
-        <a class="modal-trigger" href="#{{smoothie_recipes._id}}">
-        <img src="/static/images/{{smoothie_recipes.category_name}}.svg" class="responsive-img smoothie-icon-max">
-        </a>
-        <br/>
-        <a class="modal-trigger category-title" href="#{{smoothie_recipes._id}}">
-          <h6>{{smoothie_recipes.category_name}}</h6>
-        </a>
-
-        <!-- Modal Structure -->
-
-        <div id="{{smoothie_recipes._id}}" class="modal">
-          <div class="modal-content">
-            <h4>{{smoothie_recipes.smoothie_name}}</h4><br/>
-
-            <strong>Description - </strong>{{smoothie_recipes.description}}<br/>
-
-            <strong>Ingredients - </strong><br/> {% for ingredient in smoothie_recipes.ingredients %}
-            <ol>{{ ingredient }}</ol>
-            {% endfor %}
-
-            <strong>Method - </strong>{{smoothie_recipes.method}}<br/>
-
-            <strong>Calories - </strong>{{smoothie_recipes.calories}}<br/>
-
-            <strong>Keywords for Search - </strong><br/> {% for keywords in smoothie_recipes.keyword_search %}
-            <ol>{{ keywords }}</ol>
-            {% endfor %}
-          </div>
-        </div>
-
-      </div>
-    </li>
-    {% endfor %}
-    <li>
-      <div class="col s6 m3 l2">
-        <a href="{{ url_for('add_smoothie') }}">
-          <img src="static/images/addsmoothie.svg" class="responsive-img smoothie-icon-max">
-        </a>
-        <br/>
-        <a href="{{ url_for('add_smoothie') }}"><h6>Add Smoothie</h6></a>
-      </div>
-    </li>
-  </ul>
-</div>
+<!--https://stackoverflow.com/questions/41300486/search-function-in-flask-->
+{% for smoothie_recipes in smoothie_recipes %}
+<form action="search">
+  <input name="search" type="text" placeholder="suchen" value="{{ request.form.search }}" required />
+  <button>finden</button>
+</form>
+{% endfor %}
 
 {% endblock %}
