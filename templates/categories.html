@@ -17,12 +17,16 @@
                     <h6 class="category-title">{{category.category_name}}</h6>
                 </div>
 
+                <!-- DELETE CATEGORY - unnecessary -->
                 <form class="center" action="{{url_for('delete_category', category_id=category._id)}}" method="POST">
                     <button type="submit" class="waves-effect waves-light btn btn_small">Delete</button>
                 </form>
 
-                <!--<a href="" class="waves-effect waves-light btn btn_small blue">Edit</a>-->
-                    
+                <!-- EDIT CATEGORY - unnecessary -->
+                <!--<form class="center" action="{{url_for('edit_category', category_id=category._id)}}" method="POST">-->
+                <!--    <button type="submit" class="waves-effect waves-light btn btn_small blue">Edit</button>-->
+                <!--</form>-->
+
             </div>
         </li>
         {% endfor %}

@@ -6,6 +6,7 @@ from bson.objectid import ObjectId
 
 app = Flask(__name__)
 
+
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = os.environ.get('MONGO_DBNAME')
 app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
@@ -19,11 +20,11 @@ def get_smoothies():
     return render_template("smoothies.html", smoothie_recipes=mongo.db.smoothie_recipes.find())
    
 
-@app.route('/search')
-def search():
-    smoothie_recipes = mongo.db.smoothie_recipes
-    smoothie_recipes = smoothie_recipes.create_index([("$**", 'text')])
-    return render_template("search-results.html", smoothie_recipes.find({"$text": {"$search": str('banana')}})
+# @app.route('/search')
+# def search():
+#     smoothie_recipes = mongo.db.smoothie_recipes
+#     smoothie_recipes = smoothie_recipes.create_index([("$**", 'text')])
+#     return render_template("search-results.html", smoothie_recipes.find({"$text": {"$search": str('banana')}})
 
 
 @app.route('/add_smoothie')

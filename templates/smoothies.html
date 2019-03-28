@@ -1,6 +1,19 @@
 {% extends 'base.html'%} {% block content %}
 
 <div class="row">
+  <div class="col s8 offset-s2">
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">search</i>
+        <input type="text" id="autocomplete-input" class="autocomplete">
+        <label for="autocomplete-input">Search</label>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
   <ul>
 
     {% for smoothie_recipes in smoothie_recipes|sort(attribute='category_name') %}
@@ -20,7 +33,7 @@
 
         <!-- Modal Structure -->
 
-        <div id="{{smoothie_recipes._id}}" class="modal">
+        <div id="{{smoothie_recipes._id}}" class="modal modal-fixed-footer">
           <div class="modal-content">
             <h4>{{smoothie_recipes.smoothie_name}}</h4><br/>
 
@@ -38,6 +51,15 @@
             <ol>{{ keywords }}</ol>
             {% endfor %}
           </div>
+          
+          <div class="modal-footer">
+            <a href="#" class="modal-close">
+              <h6 class="upvote-text">Like this recipe?
+              <span><img src="/static/images/upvote.svg" class="upvote-img"></span>
+              Give it your thumbs up!</h6>
+            </a>
+          </div>
+
         </div>
 
       </div>

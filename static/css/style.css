@@ -16,13 +16,13 @@ nav {
     margin: 0;
 }
 
-.collapsible-header, .collapsible-body, .collapsible, ul.collapsible>li {
-    margin: 0!important;
-    padding: 10!important;
-    border: 0!important;
-    box-shadow: none!important;
-    background-color: transparent;
-}
+/*.collapsible-header, .collapsible-body, .collapsible, ul.collapsible>li {*/
+/*    margin: 0!important;*/
+/*    padding: 10!important;*/
+/*    border: 0!important;*/
+/*    box-shadow: none!important;*/
+/*    background-color: transparent;*/
+/*}*/
 
 .smoothie-logo {
     padding-top: 5px;
@@ -42,6 +42,23 @@ nav {
     text-transform: capitalize;
 }
 
+.modal { width: 75% !important ; height: 75% !important ; }  /* increase the height and width as you desire */
+
+.modal .modal-footer {
+    background-color: #643E4C;
+    height: 90px;
+}
+
+.upvote-img {
+    display: inline;
+    max-width: 60px;
+    max-height: 60px;
+    vertical-align: middle;
+}
+
+.upvote-text {
+    color: #FFFFFF;
+}
 
 #slide-out {
     font-family: 'Lato', sans-serif;
