@@ -48,7 +48,7 @@ def insert_smoothie():
         "method": request.form.get('method'),
         "calories": request.form.get('calories'),
         "keyword_search": keyword_search_list,
-        # "upvotes": request.form.get('upvotes': int(0)),
+        "upvotes": int(0),
     }
     smoothie_recipes.insert_one(smoothie)
     return redirect(url_for('get_smoothies'))
