@@ -15,9 +15,7 @@
 
 <div class="row">
   <ul>
-
-    {% for smoothie_recipes in smoothie_recipes|sort(attribute='category_name') %}
-    
+  {% for smoothie_recipes in smoothie_recipes|sort(attribute='category_name') %}
     
     <li>
       <div class="col s6 m3 l2">
@@ -34,23 +32,41 @@
         <!-- Modal Structure -->
 
         <div id="{{smoothie_recipes._id}}" class="modal modal-fixed-footer">
+          
           <div class="modal-content">
-            <h4>{{smoothie_recipes.smoothie_name}}</h4><br/>
+          
+          <div class="row">
+            <div class="col s12"><h4>{{smoothie_recipes.smoothie_name}}</h4></div>
+            
+            <div class="col s12 m6 l4">
+              <p><strong>Description - </strong>{{smoothie_recipes.description}}</p>
+              <p><strong>Method - </strong>{{smoothie_recipes.method}}</p>
+            </div>
 
-            <strong>Description - </strong>{{smoothie_recipes.description}}<br/>
+            <div class="col s12 m6 l4">
+              <img src="/static/images/{{smoothie_recipes.category_name}}.svg" class="responsive-img smoothie-icon-max" onerror="this.src='/static/images/default-img.svg'" title="{{smoothie_recipes.smoothie_name}}" alt="{{smoothie_recipes.smoothie_name}}">
+            </div>
 
-            <strong>Ingredients - </strong><br/> {% for ingredient in smoothie_recipes.ingredients %}
-            <ol>{{ ingredient }}</ol>
-            {% endfor %}
+            <div class="col s12 m6 l4">
+              <strong>Ingredients - </strong><br/> {% for ingredient in smoothie_recipes.ingredients %}
+              <ol>{{ ingredient }}</ol>
+                {% endfor %}
+            </div>
 
-            <strong>Method - </strong>{{smoothie_recipes.method}}<br/>
+            <div id="keywords" class="col s12">
+              CALORIES -&nbsp;{{smoothie_recipes.calories}}
+            </div>
 
-            <strong>Calories - </strong>{{smoothie_recipes.calories}}<br/>
+            <div id="keywords" class="col s12">
+              KEYWORDS -&nbsp;
+              {% for keywords in smoothie_recipes.keyword_search %}
+                <span class="keywords">{{ keywords }},&nbsp;</span>
+              {% endfor %}
+            </div>
 
-            <strong>Keywords for Search - </strong><br/> {% for keywords in smoothie_recipes.keyword_search %}
-            <ol>{{ keywords }}</ol>
-            {% endfor %}
           </div>
+
+        </div>
           
           <div class="modal-footer">
             <a href="#" class="modal-close">

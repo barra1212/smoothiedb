@@ -42,8 +42,6 @@ nav {
     text-transform: capitalize;
 }
 
-.modal { width: 75% !important ; height: 75% !important ; }  /* increase the height and width as you desire */
-
 .modal .modal-footer {
     background-color: #643E4C;
     height: 90px;
@@ -74,6 +72,14 @@ h1,h2,h3,h4,h5,h6 {
     font-family: 'Lato', sans-serif;
     text-align: center;
     color: #643E4C;
+}
+
+#keywords {
+    font-family: 'Lato', sans-serif;
+    text-align: center !important;
+    color: #643E4C;
+    float: left;
+    font-size: 1.15rem;
 }
 
 .btn, .btn-large, .btn-small {
