@@ -48,6 +48,7 @@ def insert_smoothie():
         "method": request.form.get('method'),
         "calories": request.form.get('calories'),
         "keyword_search": keyword_search_list,
+        # "upvotes": request.form.get('upvotes': int(0)),
     }
     smoothie_recipes.insert_one(smoothie)
     return redirect(url_for('get_smoothies'))
@@ -89,6 +90,17 @@ def insert_category():
     category_doc = {'category_name': request.form.get('category_name').lower()}
     mongo.db.categories.insert_one(category_doc)
     return redirect(url_for('get_categories'))
+
+
+# START CREDIT TO SHANE MUIRHEAD ON SLACK
+@app.route('/upvote/<smoothie_recipes_id>')
+def upvote(smoothie_recipes_id):
+    mongo.db.smoothie_recipes.find_one_and_update(
+        {'_id': ObjectId(smoothie_recipes_id)},
+        {'$inc': {'upvotes': int(1)}}
+    )
+    return redirect(url_for('get_smoothies')) 
+# END CREDIT TO SHANE MUIRHEAD ON SLACK
 
 
 if __name__ == '__main__':

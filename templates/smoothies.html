@@ -15,8 +15,7 @@
 
 <div class="row">
   <ul>
-  {% for smoothie_recipes in smoothie_recipes|sort(attribute='category_name') %}
-    
+  {% for smoothie_recipes in smoothie_recipes|sort(attribute='category_name')|sort(attribute='upvotes', reverse=True) %}
     <li>
       <div class="col s6 m3 l2">
 
@@ -69,7 +68,7 @@
         </div>
           
           <div class="modal-footer">
-            <a href="#" class="modal-close">
+            <a href="{{ url_for('upvote', smoothie_recipes_id=smoothie_recipes._id) }}" class="modal-close">
               <h6 class="upvote-text">Like this recipe?
               <span><img src="/static/images/upvote.svg" class="upvote-img"></span>
               Give it your thumbs up!</h6>
