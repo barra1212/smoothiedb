@@ -16,6 +16,11 @@ nav {
     margin: 0;
 }
 
+.social {
+    padding: 10px;
+    height: 50px;
+}
+
 /*.collapsible-header, .collapsible-body, .collapsible, ul.collapsible>li {*/
 /*    margin: 0!important;*/
 /*    padding: 10!important;*/

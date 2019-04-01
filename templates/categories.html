@@ -1,9 +1,8 @@
 {% extends 'base.html'%} {% block content %}
 
 <div class="row">
-
     <h3>Categories</h3>
-    <ul class="collapsible" data-collapsible="accordion">
+    <ul>
         {% for category in categories|sort(attribute='category_name') %}
         
         <li>

@@ -12,8 +12,8 @@
   </div>
 </div>
 
-
 <div class="row">
+  <h3>Smoothies</h3>
   <ul>
   {% for smoothie_recipes in smoothie_recipes|sort(attribute='category_name')|sort(attribute='upvotes', reverse=True) %}
     <li>
