@@ -1,10 +1,74 @@
-{% extends 'base.html'%}
-{% block content %}
+{% extends 'base.html'%} {% block content %}
 
-    {% for result in result %}
-        <p>{{ result.smoothie_name }}</p>
-        <p>{{ result.category_name }}</p>
-        <p>{{ result.description }}</p>
+<div class="row">
+  <h3>Smoothies</h3>
+  <ul>
+  {% for result in result|sort(attribute='category_name')|sort(attribute='upvotes', reverse=True) %}
+    <li>
+      <div class="col s6 m3 l2">
+
+        <!-- Modal Trigger -->
+        <a class="modal-trigger" href="#{{result._id}}">
+        <img src="/static/images/{{result.category_name}}.svg" class="responsive-img smoothie-icon-max" onerror="this.src='/static/images/default-img.svg'" title="{{result.smoothie_name}}" alt="{{result.smoothie_name}}">
+        </a>
+        <br/>
+        <a class="modal-trigger category-title" href="#{{result._id}}">
+          <h6>{{result.category_name}}</h6>
+        </a>
+
+        <!-- Modal Structure -->
+
+        <div id="{{result._id}}" class="modal modal-fixed-footer">
+          
+          <div class="modal-content">
+          
+          <div class="row">
+            <div class="col s12"><h4>{{result.smoothie_name}}</h4></div>
+            
+            <div class="col s12 m6 l4">
+              <p><strong>Description - </strong>{{result.description}}</p>
+              <p><strong>Method - </strong>{{result.method}}</p>
+            </div>
+
+            <div class="col s12 m6 l4">
+              <img src="/static/images/{{result.category_name}}.svg" class="responsive-img smoothie-icon-max" onerror="this.src='/static/images/default-img.svg'" title="{{result.smoothie_name}}" alt="{{result.smoothie_name}}">
+            </div>
+
+            <div class="col s12 m6 l4">
+              <strong>Ingredients - </strong><br/> {% for ingredient in result.ingredients %}
+              <ol>{{ ingredient }}</ol>
+                {% endfor %}
+            </div>
+
+            <div id="keywords" class="col s12">
+              CALORIES -&nbsp;{{result.calories}}
+            </div>
+
+            <div id="keywords" class="col s12">
+              KEYWORDS -&nbsp;
+              {% for keywords in result.keyword_search %}
+                <span class="keywords">{{ keywords }},&nbsp;</span>
+              {% endfor %}
+            </div>
+
+          </div>
+
+        </div>
+          
+          <div class="modal-footer">
+            <a href="{{ url_for('upvote', smoothie_recipes_id=result._id) }}" class="modal-close">
+              <h6 class="upvote-text">Like this recipe?
+              <span><img src="/static/images/upvote.svg" class="upvote-img"></span>
+              Give it your thumbs up!</h6>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </li>
     {% endfor %}
+  </ul>
+</div>
 
 {% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html'%}
+{% block content %}
+
+    {% for result in result %}
+        <p>{{ result.smoothie_name }}</p>
+        <p>{{ result.category_name }}</p>
+        <p>{{ result.description }}</p>
+    {% endfor %}
+
+{% endblock %}
