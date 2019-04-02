@@ -1,7 +1,9 @@
+/* BODY BACKGROUND YELLOW */
 body {
     background-color: #FFE943;
 }
 
+/* CUSTOM NAV STYLE */
 nav {
     background-color: #f4df43;
     border-bottom-color: #ffffff;
@@ -12,46 +14,46 @@ nav {
     line-height: 60px;
 }
 
+/* DECREASE DEFAULT SPACE BETWEEN LIST ITEMS */
 .lists {
     margin: 0;
 }
 
+/* SOCIAL ICON STYLING */
 .social {
     padding: 10px;
     height: 50px;
 }
 
-/*.collapsible-header, .collapsible-body, .collapsible, ul.collapsible>li {*/
-/*    margin: 0!important;*/
-/*    padding: 10!important;*/
-/*    border: 0!important;*/
-/*    box-shadow: none!important;*/
-/*    background-color: transparent;*/
-/*}*/
-
+/* MAIN LOGO STYLING IN NAVBAR */
 .smoothie-logo {
     padding-top: 5px;
     height: 50px;
 }
 
+/* CUSTOM PADDING FOR SMOOTHIE ICONS */
 .row .col {
     padding: .75em .75em;
 }
 
+/* SET MAX SIZE FOR SMOOTHIE ICONS */
 .smoothie-icon-max {
     max-width: 150px;
     max-height: 150px;
 }
 
+/* CUSTOM STYLING FOR CATEGORY TITLES. ALL STORED IN LOWERCASE IN DB */
 .category-title {
     text-transform: capitalize;
 }
 
+/* CUSTOM STYLING FOR MATERIALIZE MODAL FOOTER */
 .modal .modal-footer {
     background-color: #643E4C;
     height: 90px;
 }
 
+/* CUSTOM STYLING FOR MATERIALIZE MODAL FOOTER IMAGE */
 .upvote-img {
     display: inline;
     max-width: 60px;
@@ -59,26 +61,32 @@ nav {
     vertical-align: middle;
 }
 
+/* CUSTOM STYLING FOR MATERIALIZE MODAL FOOTER TEXT */
 .upvote-text {
     color: #FFFFFF;
 }
 
+/* TYPOGRAPHY */
+/* CUSTOM STYLING FOR SIDE NAV MOBILE MENU */
 #slide-out {
     font-family: 'Lato', sans-serif;
     color: #643E4C !important;
 }
 
+/* CUSTOM STYLING FOR NAVBAR */
 nav ul a {
     font-family: 'Lato', sans-serif;
     color: #643E4C;
 }
 
+/* CUSTOM STYLING FOR HEADINGS */
 h1,h2,h3,h4,h5,h6 {
     font-family: 'Lato', sans-serif;
     text-align: center;
     color: #643E4C;
 }
 
+/* CUSTOM STYLING FOR KEYWORDS IN MODAL */
 #keywords {
     font-family: 'Lato', sans-serif;
     text-align: center !important;
@@ -87,24 +95,28 @@ h1,h2,h3,h4,h5,h6 {
     font-size: 1.15rem;
 }
 
+/* CUSTOM BACKGROUND COLOUR FOR BUTTONS */
 .btn, .btn-large, .btn-small {
     background-color: #643E4C;
 }
 
+/* CUSTOM HOVER COLOUR FOR BUTTONS */
 .btn:hover, .btn-large:hover, .btn-small:hover {
     background-color: #b58060;
 }
 
+/* CUSTOM STYLING FOR INTRO PARAGRAPH */
 .intro {
     text-align: center;
     margin-bottom: 10px;
 }
 
+/* CUSTOM STYLING FOR FOOTER */
 .page-footer {
     background-color: #643E4C;
 }
 
-
+/* SHRINK NAVBAR ELEMENTS WIDTH ON LARGE SCREENS */
 @media only screen and (min-width: 990px) {
     .nav-wrapper {
         width: 70%;
@@ -112,13 +124,6 @@ h1,h2,h3,h4,h5,h6 {
     }
 }
 
-
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-}
-
-main {
-    flex: 1 0 auto;
-}
+/* CUSTOM STYLING FOR FOOTER TO STOCK TO VIEWPORT BOTTOM */
+body {display: flex; min-height: 100vh; flex-direction: column;}
+main {flex: 1 0 auto;}

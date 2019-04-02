@@ -1,7 +1,22 @@
 {% extends 'base.html'%} {% block content %}
 
 <div class="row">
-  <h3>Smoothies</h3>
+  <form action="{{ url_for('search') }}" method="POST" class="col s8 offset-s2">
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">search</i>
+        <input id="keyword_search" name="keyword_search" type="text">
+        <label>Search</label>
+      </div>
+    </div>
+    <div class="row center">
+      <button class="btn waves-effect waves-light" type="submit">Search</button>
+    </div>
+  </form>
+</div>
+
+<div class="row">
+  <h3>Here are your Search results</h3>
   <ul>
   {% for result in result|sort(attribute='category_name')|sort(attribute='upvotes', reverse=True) %}
     <li>
@@ -13,11 +28,10 @@
         </a>
         <br/>
         <a class="modal-trigger category-title" href="#{{result._id}}">
-          <h6>{{result.category_name}}</h6>
+          <h6>{{result.smoothie_name}}</h6>
         </a>
 
         <!-- Modal Structure -->
-
         <div id="{{result._id}}" class="modal modal-fixed-footer">
           
           <div class="modal-content">

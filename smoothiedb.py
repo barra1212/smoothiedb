@@ -19,18 +19,21 @@ smoothie_recipes=mongo.db.smoothie_recipes
 categories=mongo.db.categories
 
 
+# HOME ROOT
 @app.route('/')
 @app.route('/get_smoothies')
 def get_smoothies():
     return render_template("smoothies.html", smoothie_recipes=smoothie_recipes.find())
    
 
+# ADD SMOOTHIE FUNCTION, LOAD EXISTING CATEGORIES
 @app.route('/add_smoothie')
 def add_smoothie():
     return render_template('addsmoothie.html',
     categories=categories.find())
     
 
+# WRITE NEW SMOOTHIE RECIPE TO THE DATABASE
 @app.route('/insert_smoothie', methods=['POST'])
 def insert_smoothie():
     ingredients = request.form.get('ingredients')
@@ -51,29 +54,34 @@ def insert_smoothie():
     return redirect(url_for('get_smoothies'))
 
 
+# VIEW EXISTING CATEGORIES
 @app.route('/get_categories')
 def get_categories():
     return render_template('categories.html',
     categories=categories.find())
 
 
+# ADD CATEGORY PAGE
 @app.route('/add_category')
 def add_category():
     return render_template('addcategory.html')
     
 
+# DELETE A CATEGORY
 @app.route('/delete_category/<category_id>', methods=['POST'])
 def delete_category(category_id):
     categories.remove({'_id': ObjectId(category_id)})
     return redirect(url_for('get_categories'))
 
 
+# EDIT A CATEGORY (UNUSED)
 @app.route('/edit_category/<category_id>')
 def edit_category(category_id):
     return render_template('editcategory.html',
     category=categories.find_one({'_id': ObjectId(category_id)}))
 
 
+# UPDATE A CATEGORY (UNUSED)
 @app.route('/update_category/<category_id>', methods=['POST'])
 def update_category(category_id):
     categories.update(
@@ -82,6 +90,7 @@ def update_category(category_id):
     return redirect(url_for('get_categories'))
 
 
+# WRITE NEW CATEGORY TO THE DATABASE
 @app.route('/insert_category', methods=['POST'])
 def insert_category():
     category_doc = {'category_name': request.form.get('category_name').lower()}
@@ -89,6 +98,7 @@ def insert_category():
     return redirect(url_for('get_categories'))
 
 
+# UPVOTE A SMOOTHIE RECIPE
 # CREDIT TO SHANE MUIRHEAD ON SLACK FOR UPVOTE HELP
 @app.route('/upvote/<smoothie_recipes_id>')
 def upvote(smoothie_recipes_id):
@@ -99,47 +109,12 @@ def upvote(smoothie_recipes_id):
     return redirect(url_for('get_smoothies')) 
 
 
-# @app.route('/search', methods=['GET'])
-# def search():
-#     smoothie_recipes.create_index([("$**", 'text')])
-#     smoothie_recipes.find({"$text": {"$search": str()}})
-#     return render_template("search-results.html", smoothie_recipes=smoothie_recipes)
-
-
-## AttributeError: 'Cursor' object has no attribute 'find'
-# @app.route('/search')
-# def search():
-#     result = smoothie_recipes.find({"keyword_search" : "ice"})
-#     return render_template("search-results.html", result=result.find())
-
-
-## Returns the description on blank page
-# @app.route('/search')
-# def search():
-#     cursor = smoothie_recipes.find({"keyword_search" : "ice"})
-#     for smoothie_recipe in cursor:
-#         smoothie_recipe["description"]
-#     return smoothie_recipe["description"]
-
-
-## Returns empty styled page
-# @app.route('/search')
-# def search():
-#     cursor = smoothie_recipes.find({"keyword_search" : "ice"})
-#     for smoothie_recipe in cursor:
-#         smoothie_recipe["description"]
-#     return render_template('search-results.html', cursor=cursor)
-
-
-@app.route('/search')
+# SEARCH FUNCTION BASED ON KEYWORDS IN RECIPE
+@app.route('/search', methods=['POST'])
 def search():
-    result = smoothie_recipes.find({"keyword_search" : "ice"})
+    search_term = request.form.get('keyword_search')
+    result = smoothie_recipes.find({"keyword_search" : search_term})
     return render_template("search-results.html", result=result)
-
-
-@app.route('/contact')
-def contact():
-    return render_template('contact.html')
     
 
 if __name__ == '__main__':
