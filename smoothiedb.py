@@ -99,13 +99,49 @@ def upvote(smoothie_recipes_id):
     return redirect(url_for('get_smoothies')) 
 
 
+# @app.route('/search', methods=['GET'])
+# def search():
+#     smoothie_recipes.create_index([("$**", 'text')])
+#     smoothie_recipes.find({"$text": {"$search": str()}})
+#     return render_template("search-results.html", smoothie_recipes=smoothie_recipes)
+
+
+## AttributeError: 'Cursor' object has no attribute 'find'
+# @app.route('/search')
+# def search():
+#     result = smoothie_recipes.find({"keyword_search" : "ice"})
+#     return render_template("search-results.html", result=result.find())
+
+
+## Returns the description on blank page
+# @app.route('/search')
+# def search():
+#     cursor = smoothie_recipes.find({"keyword_search" : "ice"})
+#     for smoothie_recipe in cursor:
+#         smoothie_recipe["description"]
+#     return smoothie_recipe["description"]
+
+
+## Returns empty styled page
+# @app.route('/search')
+# def search():
+#     cursor = smoothie_recipes.find({"keyword_search" : "ice"})
+#     for smoothie_recipe in cursor:
+#         smoothie_recipe["description"]
+#     return render_template('search-results.html', cursor=cursor)
+
+
 @app.route('/search')
 def search():
-    smoothie_recipes.create_index([("$**", 'text')])
-    smoothie_recipes.find({"$text": {"$search": str('banana')}})
-    return render_template("search-results.html", smoothie_recipes=smoothie_recipes)
+    result = smoothie_recipes.find({"keyword_search" : "ice"})
+    return render_template("search-results.html", result=result)
+
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
     
-    
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')),
