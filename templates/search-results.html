@@ -18,7 +18,11 @@
 <div class="row">
   <h3>Here are your Search results</h3>
   <ul>
+    
+  {% if result.count() %}
+  
   {% for result in result|sort(attribute='category_name')|sort(attribute='upvotes', reverse=True) %}
+  
     <li>
       <div class="col s6 m3 l2">
 
@@ -81,7 +85,16 @@
 
       </div>
     </li>
-    {% endfor %}
+  {% endfor %}
+
+  {% else %}
+    
+    <h4>Oops! There's none ....</h4>
+    <img src="static/images/thumbsdown.svg" class="responsive-img smoothie-icon-max">
+    <h4>Try search again!</h4>
+      
+  {% endif %}
+
   </ul>
 </div>
 
