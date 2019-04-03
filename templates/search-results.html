@@ -18,11 +18,9 @@
 <div class="row">
   <h3>Here are your Search results</h3>
   <ul>
-    
-  {% if result.count() %}
-  
-  {% for result in result|sort(attribute='category_name')|sort(attribute='upvotes', reverse=True) %}
-  
+
+    {% if result.count() %} {% for result in result|sort(attribute='category_name')|sort(attribute='upvotes', reverse=True) %}
+
     <li>
       <div class="col s6 m3 l2">
 
@@ -37,47 +35,58 @@
 
         <!-- Modal Structure -->
         <div id="{{result._id}}" class="modal modal-fixed-footer">
-          
+
           <div class="modal-content">
-          
-          <div class="row">
-            <div class="col s12"><h4>{{result.smoothie_name}}</h4></div>
-            
-            <div class="col s12 m6 l4">
-              <p><strong>Description - </strong>{{result.description}}</p>
-              <p><strong>Method - </strong>{{result.method}}</p>
-            </div>
 
-            <div class="col s12 m6 l4">
-              <img src="/static/images/{{result.category_name}}.svg" class="responsive-img smoothie-icon-max" onerror="this.src='/static/images/default-img.svg'" title="{{result.smoothie_name}}" alt="{{result.smoothie_name}}">
-            </div>
+            <div class="row">
+              <div class="col s12">
+                <h4>{{result.smoothie_name}}</h4>
+              </div>
 
-            <div class="col s12 m6 l4">
-              <strong>Ingredients - </strong><br/> {% for ingredient in result.ingredients %}
-              <ol>{{ ingredient }}</ol>
+              <div class="col s12 m6 l4">
+                <p><strong>Description - </strong>{{result.description}}</p>
+                <p><strong>Method - </strong>{{result.method}}</p>
+              </div>
+
+              <div class="col s12 m6 l4">
+                <img src="/static/images/{{result.category_name}}.svg" class="responsive-img smoothie-icon-max" onerror="this.src='/static/images/default-img.svg'" title="{{result.smoothie_name}}" alt="{{result.smoothie_name}}">
+              </div>
+
+              <div class="col s12 m6 l4">
+                <strong>Ingredients - </strong><br/> {% for ingredient in result.ingredients %}
+                <ol>{{ ingredient }}</ol>
                 {% endfor %}
-            </div>
+              </div>
 
-            <div id="keywords" class="col s12">
-              CALORIES -&nbsp;{{result.calories}}
-            </div>
+              <div id="keywords" class="col s12">
+                CALORIES -&nbsp;{{result.calories}}
+              </div>
 
-            <div id="keywords" class="col s12">
-              KEYWORDS -&nbsp;
-              {% for keywords in result.keyword_search %}
-                <span class="keywords">{{ keywords }},&nbsp;</span>
-              {% endfor %}
+              <div id="keywords" class="col s12">
+                KEYWORDS -&nbsp; {% for keywords in result.keyword_search %}
+                <span class="keywords">{{ keywords }},&nbsp;</span> {% endfor %}
+              </div>
+              
+              <div class="row center col s12">
+                <a href="{{ url_for('edit_smoothie', smoothie_recipes_id=result._id) }}" class="waves-effect waves-light btn btn_small">Edit Smoothie Recipe</a>
+              </div>
+
+              <div class="row center col s12">
+                <a href="{{ url_for('delete_smoothie', smoothie_recipes_id=result._id) }}">
+                <p class="delete-txt">Please don't delete without developers permission.</p></a>
+                <tricky>
+                <a href="{{ url_for('delete_smoothie', smoothie_recipes_id=result._id) }}" class="waves-effect waves-light btn btn_small delete-btn">Delete Smoothie</a>
+                </tricky>
+              </div>
+
             </div>
 
           </div>
 
-        </div>
-          
           <div class="modal-footer">
             <a href="{{ url_for('upvote', smoothie_recipes_id=result._id) }}" class="modal-close">
               <h6 class="upvote-text">Like this recipe?
-              <span><img src="/static/images/upvote.svg" class="upvote-img"></span>
-              Give it your thumbs up!</h6>
+                <span><img src="/static/images/upvote.svg" class="upvote-img"></span> Give it your thumbs up!</h6>
             </a>
           </div>
 
@@ -85,15 +94,13 @@
 
       </div>
     </li>
-  {% endfor %}
+    {% endfor %} {% else %}
 
-  {% else %}
-    
     <h4>Oops! There's none ....</h4>
     <img src="static/images/thumbsdown.svg" class="responsive-img smoothie-icon-max">
     <h4>Try search again!</h4>
-      
-  {% endif %}
+
+    {% endif %}
 
   </ul>
 </div>

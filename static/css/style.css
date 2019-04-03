@@ -105,6 +105,28 @@ h1,h2,h3,h4,h5,h6 {
     background-color: #b58060;
 }
 
+/* TRICKY MOVING DELETE BUTTON */
+tricky {
+    position:absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* CUSTOM BACKGROUND COLOUR FOR DELETE BUTTON */
+.delete-btn {
+    background-color: #b20000 !important;
+}
+
+/* CUSTOM DELETE TEXT */
+.delete-txt {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    text-align: center;
+    color: #b20000;
+}
+
 /* CUSTOM STYLING FOR INTRO PARAGRAPH */
 .intro {
     text-align: center;

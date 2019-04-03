@@ -84,6 +84,13 @@ def insert_smoothie():
     return redirect(url_for('get_smoothies'))
 
 
+# DELETE SMOOTHIE
+@app.route('/delete_smoothie/<smoothie_recipes_id>')
+def delete_smoothie(smoothie_recipes_id):
+    smoothie_recipes.remove({'_id': ObjectId(smoothie_recipes_id)})
+    return redirect(url_for('get_smoothies'))
+
+
 # VIEW EXISTING CATEGORIES
 @app.route('/get_categories')
 def get_categories():
