@@ -33,12 +33,42 @@ def add_smoothie():
     categories=categories.find())
     
 
+# GO TO EDIT SMOOTHIE RECIPE PAGE
+@app.route('/edit_smoothie/<smoothie_recipes_id>')
+def edit_smoothie(smoothie_recipes_id):
+    the_smoothie = mongo.db.smoothie_recipes.find_one({"_id": ObjectId(smoothie_recipes_id)})
+    all_categories = categories.find()
+    return render_template('edit_smoothie.html', smoothie=the_smoothie, categories=all_categories)
+
+
+# UPDATE SMOOTHIE RECIPE AND WRITE TO THE DATABASE
+@app.route('/update_smoothie/<smoothie_recipes_id>', methods=['POST'])
+def update_smoothie(smoothie_recipes_id):
+    smoothie_recipes=mongo.db.smoothie_recipes
+    ingredients = request.form.get('ingredients')
+    ingredient_list = ingredients.splitlines()
+    keyword_search = request.form.get('keyword_search').lower()
+    keyword_search_list = keyword_search.splitlines()
+    smoothie_recipes.update( {'_id': ObjectId(smoothie_recipes_id)},
+    {
+        "smoothie_name": request.form.get('smoothie_name'),
+        "category_name": request.form.get('category_name'),
+        "description": request.form.get('description'),
+        "ingredients": ingredient_list,
+        "method": request.form.get('method'),
+        "calories": request.form.get('calories'),
+        "keyword_search": keyword_search_list,
+        "upvotes": int(0),
+    })
+    return redirect(url_for('get_smoothies'))
+
+
 # WRITE NEW SMOOTHIE RECIPE TO THE DATABASE
 @app.route('/insert_smoothie', methods=['POST'])
 def insert_smoothie():
     ingredients = request.form.get('ingredients')
     ingredient_list = ingredients.splitlines()
-    keyword_search = request.form.get('keyword_search')
+    keyword_search = request.form.get('keyword_search').lower()
     keyword_search_list = keyword_search.splitlines()
     smoothie = {
         "smoothie_name": request.form.get('smoothie_name'),
@@ -65,7 +95,15 @@ def get_categories():
 @app.route('/add_category')
 def add_category():
     return render_template('addcategory.html')
-    
+
+
+# WRITE NEW CATEGORY TO THE DATABASE
+@app.route('/insert_category', methods=['POST'])
+def insert_category():
+    category_doc = {'category_name': request.form.get('category_name').lower()}
+    categories.insert_one(category_doc)
+    return redirect(url_for('get_categories'))
+
 
 # DELETE A CATEGORY
 @app.route('/delete_category/<category_id>', methods=['POST'])
@@ -90,14 +128,6 @@ def update_category(category_id):
     return redirect(url_for('get_categories'))
 
 
-# WRITE NEW CATEGORY TO THE DATABASE
-@app.route('/insert_category', methods=['POST'])
-def insert_category():
-    category_doc = {'category_name': request.form.get('category_name').lower()}
-    categories.insert_one(category_doc)
-    return redirect(url_for('get_categories'))
-
-
 # UPVOTE A SMOOTHIE RECIPE
 # CREDIT TO SHANE MUIRHEAD ON SLACK FOR UPVOTE HELP
 @app.route('/upvote/<smoothie_recipes_id>')
@@ -113,7 +143,7 @@ def upvote(smoothie_recipes_id):
 @app.route('/search', methods=['POST'])
 def search():
     search_term = request.form.get('keyword_search')
-    result = smoothie_recipes.find({"keyword_search" : search_term})
+    result = smoothie_recipes.find({"keyword_search" : search_term.lower()})
     return render_template("search-results.html", result=result)
     
 
