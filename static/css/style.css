@@ -86,12 +86,11 @@ h1,h2,h3,h4,h5,h6 {
     color: #643E4C;
 }
 
-/* CUSTOM STYLING FOR KEYWORDS IN MODAL */
-#keywords {
+/* CUSTOM STYLING FOR CALORIES IN MODAL */
+.calories {
     font-family: 'Lato', sans-serif;
-    text-align: center !important;
+    /*text-align: center !important;*/
     color: #643E4C;
-    float: left;
     font-size: 1.15rem;
 }
 
@@ -106,7 +105,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 /* TRICKY MOVING DELETE BUTTON */
-tricky {
+.tricky {
     position:absolute;
     left: 0;
     right: 0;

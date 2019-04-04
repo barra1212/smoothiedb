@@ -53,15 +53,15 @@
 
               <div class="col s12 m6 l4">
                 <strong>Ingredients - </strong><br/> {% for ingredient in smoothie_recipes.ingredients %}
-                <ol>{{ ingredient }}</ol>
+                <ul><li>{{ ingredient }}</li></ul>
                 {% endfor %}
               </div>
 
-              <div id="keywords" class="col s12">
+              <div class="row center col s12 calories">
                 CALORIES -&nbsp;{{smoothie_recipes.calories}}
               </div>
 
-              <div id="keywords" class="col s12">
+              <div class="row center col s12 calories">
                 KEYWORDS -&nbsp; {% for keywords in smoothie_recipes.keyword_search %}
                 <span class="keywords">{{ keywords }},&nbsp;</span> {% endfor %}
               </div>
@@ -73,9 +73,9 @@
               <div class="row center col s12">
                 <a href="{{ url_for('delete_smoothie', smoothie_recipes_id=smoothie_recipes._id) }}">
                 <p class="delete-txt">Please don't delete without developers permission.</p></a>
-                <tricky>
+                <div class="tricky">
                 <a href="{{ url_for('delete_smoothie', smoothie_recipes_id=smoothie_recipes._id) }}" class="waves-effect waves-light btn btn_small delete-btn">Delete Smoothie</a>
-                </tricky>
+                </div>
               </div>
 
             </div>
@@ -85,7 +85,7 @@
           <div class="modal-footer">
             <a href="{{ url_for('upvote', smoothie_recipes_id=smoothie_recipes._id) }}" class="modal-close">
               <h6 class="upvote-text">Like this recipe?
-                <span><img src="/static/images/upvote.svg" class="upvote-img"></span> Give it your thumbs up!</h6>
+                <span><img src="/static/images/upvote.svg" alt="Upvote Smoothie Image" title="Upvote Smoothie Image" class="upvote-img"></span> Give it your thumbs up!</h6>
             </a>
           </div>
 
@@ -97,7 +97,7 @@
     <li>
       <div class="col s6 m3 l2">
         <a href="{{ url_for('add_smoothie') }}">
-          <img src="static/images/addsmoothie.svg" class="responsive-img smoothie-icon-max">
+          <img src="static/images/addsmoothie.svg" alt="Add Smoothie Image" title="Add Smoothie Image" class="responsive-img smoothie-icon-max">
         </a>
         <br/>
         <a href="{{ url_for('add_smoothie') }}">

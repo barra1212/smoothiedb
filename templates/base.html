@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+    
     <head>
         <meta name="viewport" content="width = device-width, initial-scale = 1">
+        <title>SmoothieDB</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:900">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css" />
-        <link rel="stylesheet" href="static/css/dc.min.css" type="text/css" />
         <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css"/>
     </head>
 
@@ -15,7 +16,7 @@
     
         <nav>
             <div class="nav-wrapper">
-            <a href="{{ url_for('get_smoothies') }}" class="brand-logo"><img src="/static/images/logo.svg" class="smoothie-logo"></a>
+            <a href="{{ url_for('get_smoothies') }}" class="brand-logo"><img src="/static/images/logo.svg" class="smoothie-logo" alt="SmoothieDB Logo" title="SmoothieDB Logo"></a>
                 <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('get_smoothies') }}">Home</a></li>
@@ -52,17 +53,17 @@
         </div>
         <div class="footer-copyright">
             <div class="container center">&copy; 2019 Barry Cunningham<br/>
-                <a href="https://www.facebook.com/cunnbarry" target="_blank"><img src="/static/images/facebook.png" class="social"></a>
-                <a href="https://twitter.com/barra1212" target="_blank"><img src="/static/images/twitter.png" class="social"></a>
-                <a href="https://www.linkedin.com/in/barry-cunningham-44010450/" target="_blank"><img src="/static/images/linkedin.png" class="social"></a>
+                <a href="https://www.facebook.com/cunnbarry" target="_blank"><img src="/static/images/facebook.png" class="social" alt="Facebook Icon" title="Facebook Icon"></a>
+                <a href="https://twitter.com/barra1212" target="_blank"><img src="/static/images/twitter.png" class="social" alt="Twitter Icon" title="Twitter Icon"></a>
+                <a href="https://www.linkedin.com/in/barry-cunningham-44010450/" target="_blank"><img src="/static/images/linkedin.png" class="social" alt="LinkedIn Icon" title="LinkedIn Icon"></a>
             </div>
         </div>
     </footer>
 
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-        <script type="text/javascript">
+        <script>
             $(document).ready(function() {
                 
                 // Slide our Side Nav
@@ -77,7 +78,7 @@
             });
             
             $(function() {
-                $("tricky").on({
+                $(".tricky").on({
                     mouseover: function() {
                         $(this).css({
                             left: (Math.random() * 500) + "px",

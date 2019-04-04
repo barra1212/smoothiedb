@@ -28,58 +28,46 @@ The App is designed to work on all devices.
 
 Proposed layout -
 
-![Mobile Layout](/documentation/mobile-plan.png)
-
 ![Desktop Layout](documentation/desktop-plan.png)
+
+![Mobile Layout](/documentation/mobile-plan.png)
 
 
 ## Features
 
-##### Navigation
-- Simple one page App. Navigation by way of HTML anchor links to various points on the page.
+#### Navigation
+- Simple navbar navigation with use of Materialize CSS for sidenav on smaller screens.
 
-![Navigation](/documentation/Barrys-Strava-2018-Navigation.png)
-
-##### Reset / Reload Page
-
-- Bespoke button to "reloadPage" hovers and animates at top right of browser window on all devices. Animation will be enough for users to know it’s there, but not so much that it is an annoyance.
-
-##### Crossfilter
-
-- Crossfilter Javascript library in installed connecting and rendering data to various D3 charts.
-
-##### Possible feature to implement
-
-- Another feature that could be implemented is connecting HTML elements to the crossfilter functionality. It would be good if clicking images of gear/bikes would trigger the data charts to behave the same as clicking on a crossfilter elements themselves.  I did research this to no avail. I think bespoke functions could be written further along in my learning.
+#### Possible feature to implement
+- Extra features that could be implemented over time as the DB grows bigger, would be extra data visualisation using crossfilter and d3/dc libraries to display the amounts of recipes containing similar ingredients, etc.
 
 <hr/>
 
 ## Technologies Used
 
-- [CSS](https://bootswatch.com/)
+- [Python](https://www.python.org/) - SmoothieDB is Python App
 
-This App is constructed in HTML using a simple bootstrap framework boilerplate template called "United" from Bootswatch.com
+- [Flask](http://flask.pocoo.org/) - Flask is a microframework for Python based on Werkzeug and Jinja 2
 
-Default CSS is used throughout and further styled with the file - /assets/css/style.css
+- [MongoDB](https://www.mongodb.com/) - The most popular database for modern Apps
 
+- [Pymongo](https://api.mongodb.com/python/current/) - PyMongo is a Python distribution containing tools for working with MongoDB, and is the recommended way to work with MongoDB from Python
 
-- [Javascript](https://www.javascript.com/)
-    - The App uses Crossfilter, D3, DC and Queue pre-installed **Javascript** libraries.
-    - Bespoke functions are written in the file - /assets/js/barry.strava.js
+- [Materialize CSS](https://materializecss.com/) - This App utilises HTML to construct page elements and uses Materialize CSS for base styling. Default Materialize CSS is used throughout and further styled with the file - /static/css/style.css
 
+- [JQuery](https://jquery.com) - The project uses **JQuery** to enable features of Materialize CSS
 
-- [JQuery](https://jquery.com)
-    - The project uses **JQuery** to enable hamburger dropdown menu on smaller mobile devices.
+- [Javascript](https://www.javascript.com/) - The App uses Javascript to trigger some features of Materialize CSS, i.e. sidenav flyout, dropdown select for categories and modal display of recipes. Javascript also used for a tricky button which hopes to deter deletion of recipes.
 
 <hr/>
 
 ## Testing
 
-##### User Stories addressed
+#### User Stories addressed
 
-- The App addresses the needs/wants of submitted user stories by showing that Strava data can be easily downloaded, and displayed in a neat intuitive manner while also allowing users to feature their own bikes/gear and add their own text/photos, etc.
+- The App addresses the needs/wants of submitted user stories admirably. The App is easy to use and find recipes. The App is child friendly and easy to use for all ages.
 
-##### Design
+#### Design
 
 - The responsiveness of the App was tested in MAC OSX Safari, Firefox and Chrome browser windows at varying sizes and displays as intended/desired.
 
@@ -88,29 +76,15 @@ Default CSS is used throughout and further styled with the file - /assets/css/st
 - Also tested on a random selection of phones, tablets and desktop browsers using https://www.browserstack.com/
 extension in Firefox.
 
-- The D3 charts are not responsive, as expected, nor do the guidelines of the project require them to be.
+#### Code
 
-##### Code
-
-- HTML code checked with validator.W3.org returns
+- HTML code checked with validator.W3.org returns -
     - Document checking completed. No errors or warnings to show.
 
-- CSS code checked with validator.W3.org returns one error
-    - Property **r** (radius of SVG circle) doesn't exist - This is related to pin pointing one specific data point and styling with bespoke CSS. Property **r** may not exist, but it does work.
+- CSS code checked with jigsaw.w3.org/css-validator returns -
+    - Congratulations! No Error Found.
 
 - Javascript checked through JSHint.com returns no errors
-
-##### Bug
-
-- A bug that encountered was with the Bootswatch template I used, where the hamburger menu button collapse feature did not work as desired. On click the menu opened, but closed straight away.
-
-- The issue was resolved with - `.navbar-collapse.collapse.in{display: block!important;}`
-
-- CREDIT: https://stackoverflow.com/questions/25878450/bootstrap-collapsed-navbar-buggy-open
-
-- An anomally in data encountered was where I had done three separate activities in one day, and the average speed was grouped, thus displaying an unachievable average speed for a bicycle (c. 70kmph). Activity Lines 19 & 20 were removed to rectify.
-
-<hr/>
 
 ## Deployment
 

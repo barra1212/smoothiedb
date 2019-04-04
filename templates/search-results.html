@@ -54,11 +54,11 @@
 
               <div class="col s12 m6 l4">
                 <strong>Ingredients - </strong><br/> {% for ingredient in result.ingredients %}
-                <ol>{{ ingredient }}</ol>
+                <ul><li>{{ ingredient }}</li></ul>
                 {% endfor %}
               </div>
 
-              <div id="keywords" class="col s12">
+              <div id="calories" class="col s12">
                 CALORIES -&nbsp;{{result.calories}}
               </div>
 
@@ -74,9 +74,10 @@
               <div class="row center col s12">
                 <a href="{{ url_for('delete_smoothie', smoothie_recipes_id=result._id) }}">
                 <p class="delete-txt">Please don't delete without developers permission.</p></a>
-                <tricky>
+                <div class="tricky">
                 <a href="{{ url_for('delete_smoothie', smoothie_recipes_id=result._id) }}" class="waves-effect waves-light btn btn_small delete-btn">Delete Smoothie</a>
-                </tricky>
+                </div>
+
               </div>
 
             </div>
@@ -86,7 +87,7 @@
           <div class="modal-footer">
             <a href="{{ url_for('upvote', smoothie_recipes_id=result._id) }}" class="modal-close">
               <h6 class="upvote-text">Like this recipe?
-                <span><img src="/static/images/upvote.svg" class="upvote-img"></span> Give it your thumbs up!</h6>
+                <span><img src="/static/images/upvote.svg" alt="Upvote Smoothie Image" title="Upvote Smoothie Image" class="upvote-img"></span> Give it your thumbs up!</h6>
             </a>
           </div>
 
