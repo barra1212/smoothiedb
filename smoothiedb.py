@@ -81,10 +81,11 @@ def insert_smoothie():
         "upvotes": int(0),
     }
     password = request.form.get('password')
-    if password == “abracadra”:
+    if password == "abracadabra":
         smoothie_recipes.insert_one(smoothie)
         return redirect(url_for('get_smoothies'))
-    else
+    else:
+        return redirect(url_for('add_smoothie'))
 
 
 # DELETE SMOOTHIE
