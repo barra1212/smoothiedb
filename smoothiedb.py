@@ -80,8 +80,11 @@ def insert_smoothie():
         "keyword_search": keyword_search_list,
         "upvotes": int(0),
     }
-    smoothie_recipes.insert_one(smoothie)
-    return redirect(url_for('get_smoothies'))
+    password = request.form.get('password')
+    if password == “abracadra”:
+        smoothie_recipes.insert_one(smoothie)
+        return redirect(url_for('get_smoothies'))
+    else
 
 
 # DELETE SMOOTHIE
