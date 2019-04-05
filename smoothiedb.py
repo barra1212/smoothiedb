@@ -49,18 +49,23 @@ def update_smoothie(smoothie_recipes_id):
     ingredient_list = ingredients.splitlines()
     keyword_search = request.form.get('keyword_search').lower()
     keyword_search_list = keyword_search.splitlines()
-    smoothie_recipes.update( {'_id': ObjectId(smoothie_recipes_id)},
-    {
-        "smoothie_name": request.form.get('smoothie_name'),
-        "category_name": request.form.get('category_name'),
-        "description": request.form.get('description'),
-        "ingredients": ingredient_list,
-        "method": request.form.get('method'),
-        "calories": request.form.get('calories'),
-        "keyword_search": keyword_search_list,
-        "upvotes": int(0),
-    })
-    return redirect(url_for('get_smoothies'))
+    while True:
+        if "UHBq531pl," == request.form.get('secret'):
+            smoothie_recipes.update( {'_id': ObjectId(smoothie_recipes_id)},
+            {
+                "smoothie_name": request.form.get('smoothie_name'),
+                "category_name": request.form.get('category_name'),
+                "description": request.form.get('description'),
+                "ingredients": ingredient_list,
+                "method": request.form.get('method'),
+                "calories": request.form.get('calories'),
+                "keyword_search": keyword_search_list,
+                "secret": request.form.get('secret'),
+                "upvotes": int(0),
+            })
+            return redirect(url_for('get_smoothies'))
+        else:
+            return render_template('error.html')
 
 
 # WRITE NEW SMOOTHIE RECIPE TO THE DATABASE
@@ -78,17 +83,14 @@ def insert_smoothie():
         "method": request.form.get('method'),
         "calories": request.form.get('calories'),
         "keyword_search": keyword_search_list,
+        "secret": "UHBq531pl,",
         "upvotes": int(0),
     }
-    password = request.form.get('password')
-    if password == "abracadabra":
-        smoothie_recipes.insert_one(smoothie)
-        return redirect(url_for('get_smoothies'))
-    else:
-        return redirect(url_for('add_smoothie'))
+    smoothie_recipes.insert_one(smoothie)
+    return redirect(url_for('get_smoothies'))
 
 
-# DELETE SMOOTHIE
+# DELETE SMOOTHIE - UNUSED ON LIVE FRONT END
 @app.route('/delete_smoothie/<smoothie_recipes_id>')
 def delete_smoothie(smoothie_recipes_id):
     smoothie_recipes.remove({'_id': ObjectId(smoothie_recipes_id)})
@@ -102,7 +104,7 @@ def get_categories():
     categories=categories.find())
 
 
-# ADD CATEGORY PAGE
+# GO TO ADD CATEGORY PAGE
 @app.route('/add_category')
 def add_category():
     return render_template('addcategory.html')
@@ -116,21 +118,21 @@ def insert_category():
     return redirect(url_for('get_categories'))
 
 
-# DELETE A CATEGORY
+# DELETE A CATEGORY - UNUSED ON LIVE FRONT END
 @app.route('/delete_category/<category_id>', methods=['POST'])
 def delete_category(category_id):
     categories.remove({'_id': ObjectId(category_id)})
     return redirect(url_for('get_categories'))
 
 
-# EDIT A CATEGORY (UNUSED)
+# EDIT A CATEGORY - UNUSED ON LIVE FRONT END
 @app.route('/edit_category/<category_id>')
 def edit_category(category_id):
     return render_template('editcategory.html',
     category=categories.find_one({'_id': ObjectId(category_id)}))
 
 
-# UPDATE A CATEGORY (UNUSED)
+# UPDATE A CATEGORY - UNUSED ON LIVE FRONT END
 @app.route('/update_category/<category_id>', methods=['POST'])
 def update_category(category_id):
     categories.update(
@@ -157,6 +159,12 @@ def search():
     result = smoothie_recipes.find({"keyword_search" : search_term.lower()})
     return render_template("search-results.html", result=result)
     
+
+# GO TO ERROR PAGE
+@app.route('/error')
+def error():
+    return render_template('error.html')
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

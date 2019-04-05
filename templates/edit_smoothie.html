@@ -58,7 +58,7 @@
             </div>
         </div>
         
-        <!-- Add Smoothie method-->
+        <!-- Edit Smoothie method-->
         <div class="row">
             <div class="input-field col s12 m12 l8 offset-l2">
                 <i class="material-icons prefix">local_drink</i>
@@ -67,7 +67,7 @@
             </div>
         </div>
         
-        <!-- Add calories-->
+        <!-- Edit calories-->
         <div class="row">
             <div class="input-field col s12 m12 l8 offset-l2">
                 <i class="material-icons prefix">local_drink</i>
@@ -76,13 +76,23 @@
             </div>
         </div>
         
-        <!-- keywords for search-->
+        <!-- Edit keywords -->
         <div class="row">
             <p class="center">Enter keywords so that your Smoothie recipe can be found. Hit return after each one.</p>
             <div class="input-field col s12 m12 l8 offset-l2">
                 <i class="material-icons prefix">local_drink</i>
                 <textarea id="keyword_search" name="keyword_search" type="text" class="materialize-textarea">{{smoothie.keyword_search}}</textarea>
                 <label for="icon_telephone">Search Keywords</label>
+            </div>
+        </div>
+
+        <!-- Check password -->
+        <div class="row">
+            <p class="center">You'll need the admin password to edit a recipe.</p>
+            <div class="input-field col s12 m12 l8 offset-l2">
+                <i class="material-icons prefix">lock</i>
+                <input id="secret" name="secret">
+                <label for="icon_prefix">Password</label>
             </div>
         </div>
 

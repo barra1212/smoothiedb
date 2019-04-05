@@ -1,7 +1,7 @@
 {% extends 'base.html'%} {% block content %}
 
 <div class="row">
-  <form action="{{ url_for('search') }}" method="POST" class="col s8 offset-s2">
+  <form action="{{ url_for('search') }}" method="POST" class="col s12 m12 l8 offset-l2">
     <div class="row">
       <div class="input-field col s12">
         <i class="material-icons prefix">search</i>
@@ -26,7 +26,7 @@
 
         <!-- Modal Trigger -->
         <a class="modal-trigger" href="#{{result._id}}">
-        <img src="/static/images/{{result.category_name}}.svg" class="responsive-img smoothie-icon-max" onerror="this.src='/static/images/default-img.svg'" title="{{result.smoothie_name}}" alt="{{result.smoothie_name}}">
+        <img src="/static/images/{{result.category_name}}.svg" class="responsive-img smoothie-icon-max" onerror="this.src='/static/images/default-img.svg'" title="{{result.category_name}}" alt="{{result.category_name}}">
         </a>
         <br/>
         <a class="modal-trigger category-title" href="#{{result._id}}">
@@ -54,31 +54,35 @@
 
               <div class="col s12 m6 l4">
                 <strong>Ingredients - </strong><br/> {% for ingredient in result.ingredients %}
-                <ul><li>{{ ingredient }}</li></ul>
+                <ul>
+                  <li>{{ ingredient }}</li>
+                </ul>
                 {% endfor %}
               </div>
 
-              <div id="calories" class="col s12">
+              <div class="row center col s12 calories">
                 CALORIES -&nbsp;{{result.calories}}
               </div>
 
-              <div id="keywords" class="col s12">
+              <div class="row center col s12 calories">
                 KEYWORDS -&nbsp; {% for keywords in result.keyword_search %}
                 <span class="keywords">{{ keywords }},&nbsp;</span> {% endfor %}
               </div>
-              
+
               <div class="row center col s12">
                 <a href="{{ url_for('edit_smoothie', smoothie_recipes_id=result._id) }}" class="waves-effect waves-light btn btn_small">Edit Smoothie Recipe</a>
+                <p class="edit-txt">You'll need the admin password to edit a recipe.</p>
+                </a>
               </div>
 
-              <div class="row center col s12">
-                <a href="{{ url_for('delete_smoothie', smoothie_recipes_id=result._id) }}">
-                <p class="delete-txt">Please don't delete without developers permission.</p></a>
-                <div class="tricky">
-                <a href="{{ url_for('delete_smoothie', smoothie_recipes_id=result._id) }}" class="waves-effect waves-light btn btn_small delete-btn">Delete Smoothie</a>
-                </div>
-
-              </div>
+              <!-- DELETE FUNCTION WORKS. UNCOMMENT IF YOU WISH TO DELETE A SMOOTHIE RECIPE -->
+              <!--<div class="row center col s12">-->
+              <!--  <a href="{{ url_for('delete_smoothie', smoothie_recipes_id=result._id) }}">-->
+              <!--  <p class="delete-txt">Please don't delete without developers permission.</p></a>-->
+              <!--  <div class="tricky">-->
+              <!--  <a href="{{ url_for('delete_smoothie', smoothie_recipes_id=result._id) }}" class="waves-effect waves-light btn btn_small delete-btn">Delete Smoothie</a>-->
+              <!--  </div>-->
+              <!--</div>-->
 
             </div>
 
@@ -87,7 +91,7 @@
           <div class="modal-footer">
             <a href="{{ url_for('upvote', smoothie_recipes_id=result._id) }}" class="modal-close">
               <h6 class="upvote-text">Like this recipe?
-                <span><img src="/static/images/upvote.svg" alt="Upvote Smoothie Image" title="Upvote Smoothie Image" class="upvote-img"></span> Give it your thumbs up!</h6>
+                <span><img src="/static/images/upvote.gif" alt="Upvote Smoothie Image" title="Upvote Smoothie Image" class="upvote-img"></span> Give it your thumbs up!</h6>
             </a>
           </div>
 

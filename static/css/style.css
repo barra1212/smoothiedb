@@ -126,6 +126,14 @@ h1,h2,h3,h4,h5,h6 {
     color: #b20000;
 }
 
+/* CUSTOM EDIT TEXT */
+.edit-txt {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    text-align: center;
+    color: #643E4C;
+}
+
 /* CUSTOM STYLING FOR INTRO PARAGRAPH */
 .intro {
     text-align: center;
