@@ -41,6 +41,10 @@ Proposed layout -
 #### Possible feature to implement
 - Extra features that could be implemented over time as the DB grows bigger, would be extra data visualisation using crossfilter and d3/dc libraries to display the amounts of recipes containing similar ingredients, etc.
 
+- With further learning I would implement the widely recognised red circle with white numer to indicate multiple recipes within a category.
+
+    ![Multiple Recipes](/documentation/multiple-recipes.png)
+
 <hr/>
 
 ## Technologies Used
@@ -88,9 +92,23 @@ extension in Firefox.
 
 ## Deployment
 
-The live App is deployed to Heroku for review
+SmoothieDB App is built in Cloud9 and all code pushed to a Github Respository.
 
-NEED TO COMPLETE THIS
+Check out version control for commit steps during development.
+
+`git add .` - Add all files to commit
+
+`git status` - I like to call git status to examine file changes before commit
+
+`git commit -m "A meaningful commit statement"` - Call your commit
+
+`git push` - Push to your repository. Enter credentials
+
+`git push heroku master` - Push to Heroku
+
+`heroku ps:scale web=1` - Start dynos, thus running the App
+
+- [SmoothieDB](https://smoothie-db.herokuapp.com/) - SmoothieDB is a Python App deployed to Heroku
 
 <hr/>
 
@@ -100,7 +118,7 @@ NEED TO COMPLETE THIS
 - The recipes uploaded to SmoothieDB are sourced online and input directly into MongoDB account.
 
 #### Media
-- The MongoDB logo is designed by the developer Barry Cunningham
+- The SmoothieDB logo is designed by the developer Barry Cunningham
 
 - The icon images base items were purchased from [VectorStock](https://www.vectorstock.com/) and further images were created by the developer Barry Cunningham in the same style to complement the existing ones. A total of 60 icons are preloaded awaiting new user smoothies and if there's no match, a default image is used.
 
