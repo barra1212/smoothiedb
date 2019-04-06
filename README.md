@@ -108,7 +108,9 @@ Check out version control for commit steps during development.
 
 `heroku ps:scale web=1` - Start dynos, thus running the App
 
-- [SmoothieDB](https://smoothie-db.herokuapp.com/) - SmoothieDB is a Python App deployed to Heroku
+[SmoothieDB](https://smoothie-db.herokuapp.com/) - SmoothieDB is a Python App deployed to Heroku
+
+To edit recipes use password `UHBq531pl,`
 
 <hr/>
 
