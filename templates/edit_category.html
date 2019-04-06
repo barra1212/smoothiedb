@@ -1,0 +1,24 @@
+{% extends 'base.html'%} {% block content %}
+
+<h3>Edit Category</h3>
+
+<!-- Form Action calls 'update_category' Python function which updates/writes category to the Database-->
+<form action="{{ url_for('update_category', category_id=category._id) }}" method="POST" class="col s12">
+    <div class="row">
+        
+        <div class="input-field col s12 m12 l8 offset-l2">
+            <i class="material-icons prefix">local_drink</i>
+            <input id="category_name" name="category_name" value="{{category.category_name}}">
+            <label for="icon_prefix">Category Name</label>
+        </div>
+
+        <div class="row center">
+            <button class="btn-large waves-effect waves-light" type="submit" name="action">Edit Category
+                <i class="material-icons right">local_drink</i>
+            </button>
+        </div>
+
+    </div>
+</form>
+
+{% endblock %}

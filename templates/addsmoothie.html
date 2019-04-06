@@ -1,9 +1,11 @@
 {% extends 'base.html' %} {% block content %}
 <h3>Add Smoothie</h3>
-<div class="row">
-    <form action="{{ url_for('insert_smoothie') }}" method="POST"  class="col s12">
-        
-        <!-- Choose Smoothie category -->
+<div class="row brown-text">
+
+    <!-- Form Action calls 'insert_smoothie' Python function which writes a recipe to the Database-->
+    <form action="{{ url_for('insert_smoothie') }}" method="POST" class="col s12">
+
+        <!-- Choose pre existing, preloaded Smoothie category -->
         <div class="row">
             <div class="input-field col s12 m12 l8 offset-l2">
                 <i class="material-icons prefix">local_drink</i>
@@ -15,7 +17,7 @@
                 </select>
             </div>
         </div>
-            
+
         <!-- Or Add a New Category -->
         <div class="row center col s12 m12 l8 offset-l2">
             <a href="{{url_for('add_category')}}" class="waves-effect waves-light btn">
@@ -31,7 +33,7 @@
                 <label for="icon_prefix">Smoothie Name</label>
             </div>
         </div>
-        
+
         <!-- Add Smoothie description-->
         <div class="row">
             <div class="input-field col s12 m12 l8 offset-l2">
@@ -40,7 +42,7 @@
                 <label for="icon_telephone">Smoothie Description</label>
             </div>
         </div>
-        
+
         <!-- Add Smoothie ingredients-->
         <div class="row">
             <p class="center">Enter your Smoothie ingredients. Hit return after each one.</p>
@@ -50,7 +52,7 @@
                 <label for="icon_telephone">Smoothie Ingredients</label>
             </div>
         </div>
-        
+
         <!-- Add Smoothie method-->
         <div class="row">
             <div class="input-field col s12 m12 l8 offset-l2">
@@ -59,7 +61,7 @@
                 <label for="icon_telephone">Smoothie Method</label>
             </div>
         </div>
-        
+
         <!-- Add calories-->
         <div class="row">
             <div class="input-field col s12 m12 l8 offset-l2">
@@ -68,7 +70,7 @@
                 <label for="number">Enter calories</label>
             </div>
         </div>
-        
+
         <!-- keywords for search-->
         <div class="row">
             <p class="center">Enter keywords so that your Smoothie recipe can be found. Hit return after each one.</p>
@@ -82,11 +84,11 @@
         <!-- Button to Add Smoothie to the database-->
         <div class="row center">
             <!--<button class="btn waves-effect waves-light" type="submit" name="action">Add Smoothie-->
-            <button class="btn-large waves-effect waves-light" type="submit" >Add Smoothie
+            <button class="btn-large waves-effect waves-light" type="submit">Add Smoothie
                 <i class="material-icons right">local_drink</i>
              </button>
         </div>
-        
+
     </form>
 </div>
 

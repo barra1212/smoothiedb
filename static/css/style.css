@@ -1,7 +1,16 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* BODY */
+
 /* BODY BACKGROUND YELLOW */
 body {
     background-color: #FFE943;
 }
+
+
+
+/* NAV * /
 
 /* CUSTOM NAV STYLE */
 nav {
@@ -14,59 +23,6 @@ nav {
     line-height: 60px;
 }
 
-/* DECREASE DEFAULT SPACE BETWEEN LIST ITEMS */
-.lists {
-    margin: 0;
-}
-
-/* SOCIAL ICON STYLING */
-.social {
-    padding: 10px;
-    height: 50px;
-}
-
-/* MAIN LOGO STYLING IN NAVBAR */
-.smoothie-logo {
-    padding-top: 5px;
-    height: 50px;
-}
-
-/* CUSTOM PADDING FOR SMOOTHIE ICONS */
-.row .col {
-    padding: .75em .75em;
-}
-
-/* SET MAX SIZE FOR SMOOTHIE ICONS */
-.smoothie-icon-max {
-    max-width: 150px;
-    max-height: 150px;
-}
-
-/* CUSTOM STYLING FOR CATEGORY TITLES. ALL STORED IN LOWERCASE IN DB */
-.category-title {
-    text-transform: capitalize;
-}
-
-/* CUSTOM STYLING FOR MATERIALIZE MODAL FOOTER */
-.modal .modal-footer {
-    background-color: #643E4C;
-    height: 90px;
-}
-
-/* CUSTOM STYLING FOR MATERIALIZE MODAL FOOTER IMAGE */
-.upvote-img {
-    display: inline;
-    max-width: 60px;
-    max-height: 60px;
-    vertical-align: middle;
-}
-
-/* CUSTOM STYLING FOR MATERIALIZE MODAL FOOTER TEXT */
-.upvote-text {
-    color: #FFFFFF;
-}
-
-/* TYPOGRAPHY */
 /* CUSTOM STYLING FOR SIDE NAV MOBILE MENU */
 #slide-out {
     font-family: 'Lato', sans-serif;
@@ -79,11 +35,27 @@ nav ul a {
     color: #643E4C;
 }
 
+/* MAIN LOGO STYLING IN NAVBAR */
+.smoothie-logo {
+    padding-top: 5px;
+    height: 50px;
+}
+
+
+
+/* TYPOGRAPHY * /
+
 /* CUSTOM STYLING FOR HEADINGS */
 h1,h2,h3,h4,h5,h6 {
     font-family: 'Lato', sans-serif;
     text-align: center;
     color: #643E4C;
+}
+
+/* CUSTOM STYLING FOR INTRO PARAGRAPH */
+.intro {
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 /* CUSTOM STYLING FOR CALORIES IN MODAL */
@@ -92,30 +64,6 @@ h1,h2,h3,h4,h5,h6 {
     /*text-align: center !important;*/
     color: #643E4C;
     font-size: 1.15rem;
-}
-
-/* CUSTOM BACKGROUND COLOUR FOR BUTTONS */
-.btn, .btn-large, .btn-small {
-    background-color: #643E4C;
-}
-
-/* CUSTOM HOVER COLOUR FOR BUTTONS */
-.btn:hover, .btn-large:hover, .btn-small:hover {
-    background-color: #b58060;
-}
-
-/* TRICKY MOVING DELETE BUTTON */
-.tricky {
-    position:absolute;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* CUSTOM BACKGROUND COLOUR FOR DELETE BUTTON */
-.delete-btn {
-    background-color: #b20000 !important;
 }
 
 /* CUSTOM DELETE TEXT */
@@ -134,16 +82,106 @@ h1,h2,h3,h4,h5,h6 {
     color: #643E4C;
 }
 
-/* CUSTOM STYLING FOR INTRO PARAGRAPH */
-.intro {
-    text-align: center;
-    margin-bottom: 10px;
+/* CUSTOM STYLING FOR CATEGORY TITLES. ALL STORED IN LOWERCASE IN DB */
+.category-title {
+    text-transform: capitalize;
 }
+
+/* CUSTOM STYLING FOR MATERIALIZE MODAL FOOTER TEXT */
+.upvote-text {
+    color: #FFFFFF;
+}
+
+/* DECREASE DEFAULT SPACE BETWEEN LIST ITEMS */
+.lists {
+    margin: 0;
+}
+
+
+
+/* CATEGORY ICONS */
+
+/* CUSTOM PADDING FOR SMOOTHIE ICONS */
+.row .col {
+    padding: .75em .75em;
+}
+
+/* SET MAX SIZE FOR SMOOTHIE ICONS */
+.smoothie-icon-max {
+    max-width: 150px;
+    max-height: 150px;
+}
+
+
+
+
+/* MODAL */
+
+/* CUSTOM STYLING FOR MATERIALIZE MODAL FOOTER */
+.modal .modal-footer {
+    background-color: #643E4C;
+    height: 90px;
+}
+
+/* CUSTOM STYLING FOR MATERIALIZE MODAL FOOTER IMAGE */
+.upvote-img {
+    display: inline;
+    max-width: 60px;
+    max-height: 60px;
+    vertical-align: middle;
+}
+
+
+
+/* BUTTONS */
+
+/* TRICKY MOVING DELETE BUTTON */
+.tricky {
+    position:absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* CUSTOM BACKGROUND COLOUR FOR BUTTONS */
+.btn, .btn-large, .btn-small {
+    margin-top: 10px;
+    background-color: #643E4C;
+}
+
+/* CUSTOM HOVER COLOUR FOR BUTTONS */
+.btn:hover, .btn-large:hover, .btn-small:hover {
+    background-color: #b58060;
+}
+
+/* CUSTOM BACKGROUND COLOUR FOR DELETE BUTTON */
+.delete-btn {
+    background-color: #b20000 !important;
+}
+
+
+
+/* FOOTER */
 
 /* CUSTOM STYLING FOR FOOTER */
 .page-footer {
     background-color: #643E4C;
 }
+
+/* CUSTOM STYLING FOR FOOTER TO STOCK TO VIEWPORT BOTTOM */
+body {display: flex; min-height: 100vh; flex-direction: column;}
+main {flex: 1 0 auto;}
+
+/* SOCIAL ICON STYLING */
+.social {
+    padding: 10px;
+    height: 50px;
+}
+
+
+
+/* MEDIA QUERIES */
 
 /* SHRINK NAVBAR ELEMENTS WIDTH ON LARGE SCREENS */
 @media only screen and (min-width: 990px) {
@@ -152,7 +190,3 @@ h1,h2,h3,h4,h5,h6 {
         margin: auto;
     }
 }
-
-/* CUSTOM STYLING FOR FOOTER TO STOCK TO VIEWPORT BOTTOM */
-body {display: flex; min-height: 100vh; flex-direction: column;}
-main {flex: 1 0 auto;}

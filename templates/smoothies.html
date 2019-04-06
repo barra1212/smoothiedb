@@ -1,6 +1,7 @@
 {% extends 'base.html'%} {% block content %}
 
 <div class="row">
+  <!-- Form Action calls 'search' Python function and targets keyword_search on DB documents -->
   <form action="{{ url_for('search') }}" method="POST" class="col s12 m12 l8 offset-l2">
     <div class="row">
       <div class="input-field col s12">
@@ -17,7 +18,9 @@
 
 <div class="row">
   <h3>Smoothies</h3>
+
   <ul>
+    <!--Displays all smoothie recipes by upvotes first and then in alphabetical order-->
     {% for smoothie_recipes in smoothie_recipes|sort(attribute='category_name')|sort(attribute='upvotes', reverse=True) %}
     <li>
       <div class="col s6 m3 l2">
@@ -32,7 +35,6 @@
         </a>
 
         <!-- Modal Structure -->
-
         <div id="{{smoothie_recipes._id}}" class="modal modal-fixed-footer">
 
           <div class="modal-content">
@@ -87,6 +89,8 @@
 
           </div>
 
+          <!-- Animating icon to encourage upvote on a recipe -->
+          <!-- Action calls 'upvote' Python function and adds (1) to upvotes -->
           <div class="modal-footer">
             <a href="{{ url_for('upvote', smoothie_recipes_id=smoothie_recipes._id) }}" class="modal-close">
               <h6 class="upvote-text">Like this recipe?
@@ -99,8 +103,10 @@
       </div>
     </li>
     {% endfor %}
+    <!--Display Add button at the end of the loaded list of recipes-->
     <li>
       <div class="col s6 m3 l2">
+        <!-- Action calls 'add_smoothie' Python function to go to Add Smoothie page -->
         <a href="{{ url_for('add_smoothie') }}">
           <img src="static/images/addsmoothie.svg" alt="Add Smoothie Image" title="Add Smoothie Image" class="responsive-img smoothie-icon-max">
         </a>

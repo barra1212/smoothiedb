@@ -4,6 +4,8 @@
     <head>
         <meta name="viewport" content="width = device-width, initial-scale = 1">
         <title>SmoothieDB</title>
+        <!-- Styling predominantly Materialize CSS -->
+        <!-- To function properly Materialize CSS requires header, main and footer elements within the body -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:900">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css" />
@@ -12,6 +14,7 @@
 
     <body>
 
+    <!-- Header including Logo, navbar, etc. -->
     <header>
     
         <nav>
@@ -34,6 +37,7 @@
     
     </header>
     
+    <!-- Main body area -->
     <main class="container">
         <div class="intro">
             <h4>Fancy a Smoothie? We've got tons of recipes.</h4>
@@ -45,6 +49,7 @@
         
     </main>
         
+    <!-- Footer area -->
     <footer class="page-footer">
         <div class="container">
             <div class="row">
@@ -76,7 +81,9 @@
                 $('.modal').modal();
                 
             });
-            
+
+            // Functionality of a tricky delete button which moves on hover
+            // Credit to Stack Overflow - https://stackoverflow.com/questions/11929687/tricky-button-moving-away-when-mouseover-in-javascript
             $(function() {
                 $(".tricky").on({
                     mouseover: function() {

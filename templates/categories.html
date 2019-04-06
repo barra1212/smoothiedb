@@ -3,8 +3,8 @@
 <div class="row">
     <h3>Categories</h3>
     <ul>
+        <!--Displays categories in alphabetical order-->
         {% for category in categories|sort(attribute='category_name') %}
-        
         <li>
             <div class="col s6 m3 l2">
                 
@@ -16,14 +16,19 @@
                     <h6 class="category-title">{{category.category_name}}</h6>
                 </div>
 
-                <!-- DELETE FUNCTION WORKS. UNCOMMENT IF YOU WISH TO DELETE A SMOOTHIE CATEGORY -->
-                <!--<form class="center" action="{{url_for('delete_category', category_id=category._id)}}" method="POST">-->
-                <!--    <button type="submit" class="waves-effect waves-light btn btn_small">Delete</button>-->
-                <!--</form>-->
+                <form class="center" action="{{url_for('edit_category', category_id=category._id)}}" method="POST">
+                    <button type="submit" class="waves-effect waves-light btn btn_small">Edit</button>
+                </form>
+
+                <form class="center" action="{{url_for('delete_category', category_id=category._id)}}" method="POST">
+                    <button type="submit" class="waves-effect waves-light btn btn_small delete-btn">Delete</button>
+                </form>
 
             </div>
         </li>
         {% endfor %}
+        
+        <!--Display Add button at the end of the loaded list of categories-->
         <li>
             <div class="col s6 m3 l2">
                 <a href="{{ url_for('add_category') }}">
